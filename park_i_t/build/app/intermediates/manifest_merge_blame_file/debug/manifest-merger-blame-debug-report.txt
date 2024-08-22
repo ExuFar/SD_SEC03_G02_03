@@ -1,0 +1,218 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mycompany.parkit"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:4:5-66
+14-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:4:22-64
+15
+16    <permission
+16-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+17        android:name="com.mycompany.parkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+17-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+18        android:protectionLevel="signature" />
+18-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+19
+20    <uses-permission android:name="com.mycompany.parkit.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+20-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+21
+22    <application
+22-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:7:5-61:19
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.13.1] C:\Users\izzul\.gradle\caches\transforms-3\9410855fe03e5233fe2bde49c78ec02a\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:10:9-43
+26        android:label="ParkIT"
+26-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:8:9-31
+27        android:requestLegacyExternalStorage="true" >
+27-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:11:9-52
+28        <activity
+28-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:13:9-51:20
+29            android:name="com.mycompany.parkit.MainActivity"
+29-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:14:13-41
+30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+30-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:18:13-163
+31            android:exported="true"
+31-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:15:13-36
+32            android:hardwareAccelerated="true"
+32-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:19:13-47
+33            android:launchMode="singleTop"
+33-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:16:13-43
+34            android:theme="@style/LaunchTheme"
+34-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:17:13-47
+35            android:windowSoftInputMode="adjustResize" >
+35-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:20:13-55
+36
+37            <!--
+38                 Specifies an Android theme to apply to this Activity as soon as
+39                 the Android process has started. This theme is visible to the user
+40                 while the Flutter UI initializes. After that, this theme continues
+41                 to determine the Window background behind the Flutter UI.
+42            -->
+43            <meta-data
+43-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:25:13-28:17
+44                android:name="io.flutter.embedding.android.NormalTheme"
+44-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:26:15-70
+45                android:resource="@style/NormalTheme" />
+45-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:27:15-52
+46            <!--
+47                 Displays an Android View that continues showing the launch screen
+48                 Drawable until Flutter paints its first frame, then this splash
+49                 screen fades out. A splash screen is useful to avoid any visual
+50                 gap between the end of Android's launch screen and the painting of
+51                 Flutter's first frame.
+52            -->
+53            <meta-data
+53-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:34:13-37:17
+54                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+54-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:35:15-79
+55                android:resource="@drawable/launch_background" />
+55-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:36:15-61
+56
+57            <intent-filter>
+57-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:38:13-41:29
+58                <action android:name="android.intent.action.MAIN" />
+58-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:39:17-68
+58-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:39:25-66
+59
+60                <category android:name="android.intent.category.LAUNCHER" />
+60-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:40:17-76
+60-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:40:27-74
+61            </intent-filter>
+62            <!-- Deep linking -->
+63            <meta-data
+63-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:43:13-90
+64                android:name="flutter_deeplinking_enabled"
+64-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:43:24-66
+65                android:value="true" />
+65-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:43:67-87
+66
+67            <intent-filter android:autoVerify="true" >
+67-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:44:13-49:29
+67-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:44:28-53
+68                <action android:name="android.intent.action.VIEW" />
+68-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:45:17-69
+68-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:45:25-66
+69
+70                <category android:name="android.intent.category.DEFAULT" />
+70-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:46:17-76
+70-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:46:27-73
+71                <category android:name="android.intent.category.BROWSABLE" />
+71-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:47:17-78
+71-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:47:27-75
+72
+73                <data
+73-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:48:17-75
+74                    android:host="parkit.com"
+74-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:48:47-72
+75                    android:scheme="parkit" />
+75-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:48:23-46
+76            </intent-filter>
+77        </activity>
+78
+79        <!--
+80             Don't delete the meta-data below.
+81             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+82        -->
+83        <meta-data
+83-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:55:9-57:33
+84            android:name="flutterEmbedding"
+84-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:56:13-44
+85            android:value="2" />
+85-->C:\Users\izzul\Downloads\park_i_t\park_i_t\android\app\src\main\AndroidManifest.xml:57:13-30
+86
+87        <activity
+87-->[:url_launcher_android] C:\Users\izzul\Downloads\park_i_t\park_i_t\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+88            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+88-->[:url_launcher_android] C:\Users\izzul\Downloads\park_i_t\park_i_t\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+89            android:exported="false"
+89-->[:url_launcher_android] C:\Users\izzul\Downloads\park_i_t\park_i_t\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+90            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+90-->[:url_launcher_android] C:\Users\izzul\Downloads\park_i_t\park_i_t\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+91
+92        <uses-library
+92-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+93            android:name="androidx.window.extensions"
+93-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+94            android:required="false" />
+94-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+95        <uses-library
+95-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+96            android:name="androidx.window.sidecar"
+96-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+97            android:required="false" />
+97-->[androidx.window:window:1.2.0] C:\Users\izzul\.gradle\caches\transforms-3\1104c2a7afc2f38eaa28a637b47e9e83\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+98
+99        <provider
+99-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+100            android:name="androidx.startup.InitializationProvider"
+100-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:25:13-67
+101            android:authorities="com.mycompany.parkit.androidx-startup"
+101-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:26:13-68
+102            android:exported="false" >
+102-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:27:13-37
+103            <meta-data
+103-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+104                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+104-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+105                android:value="androidx.startup" />
+105-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\izzul\.gradle\caches\transforms-3\14e13662ff352121497a6f15f99bd08f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+106            <meta-data
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+107                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+108                android:value="androidx.startup" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+109        </provider>
+110
+111        <receiver
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+112            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+113            android:directBootAware="false"
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+114            android:enabled="true"
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+115            android:exported="true"
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+116            android:permission="android.permission.DUMP" >
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+118                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+121                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+122            </intent-filter>
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+124                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+124-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+127                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\izzul\.gradle\caches\transforms-3\1d6f62b612dd675a7fe5f567319db30d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+128            </intent-filter>
+129        </receiver>
+130    </application>
+131
+132</manifest>
