@@ -1,0 +1,101 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --start-paused -d chrome --devtools-server-address http://127.0.0.1:9101/ --target C:\Users\izzul\Downloads\park_i_t (2)\park_i_t\lib\main.dart
+
+## exception
+
+SocketException: SocketException: The remote computer refused the network connection.
+ (OS Error: The remote computer refused the network connection.
+, errno = 1225), address = localhost, port = 60785
+
+```
+#0      _NativeSocket.startConnect (dart:io-patch/socket_patch.dart:721:35)
+#1      _RawSocket.startConnect (dart:io-patch/socket_patch.dart:1920:26)
+#2      RawSocket.startConnect (dart:io-patch/socket_patch.dart:27:23)
+#3      Socket._startConnect (dart:io-patch/socket_patch.dart:2144:22)
+#4      Socket.startConnect (dart:io/socket.dart:825:21)
+#5      _ConnectionTarget.connect (dart:_http/http_impl.dart:2491:20)
+#6      _HttpClient._getConnection.connect (dart:_http/http_impl.dart:2930:12)
+#7      _HttpClient._getConnection (dart:_http/http_impl.dart:2935:12)
+#8      _HttpClient._openUrl (dart:_http/http_impl.dart:2790:12)
+#9      _HttpClient.getUrl (dart:_http/http_impl.dart:2632:48)
+#10     ChromeConnection.getUrl (package:webkit_inspection_protocol/webkit_inspection_protocol.dart:108:33)
+#11     ChromeConnection.getTabs (package:webkit_inspection_protocol/webkit_inspection_protocol.dart:53:26)
+#12     ChromeConnection.getTab (package:webkit_inspection_protocol/webkit_inspection_protocol.dart:90:31)
+#13     Chromium.close (package:flutter_tools/src/web/chrome.dart:510:53)
+#14     ChromiumDevice.stopApp (package:flutter_tools/src/web/web_device.dart:164:20)
+#15     ResidentWebRunner._cleanup (package:flutter_tools/src/isolated/resident_web_runner.dart:203:27)
+<asynchronous suspension>
+#16     ResidentWebRunner.cleanupAtFinish (package:flutter_tools/src/isolated/resident_web_runner.dart:191:5)
+<asynchronous suspension>
+#17     ResidentRunner.waitForAppToFinish (package:flutter_tools/src/resident_runner.dart:1482:5)
+<asynchronous suspension>
+#18     RunCommand.runCommand (package:flutter_tools/src/commands/run.dart:788:26)
+<asynchronous suspension>
+#19     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1408:27)
+<asynchronous suspension>
+#20     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#21     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#22     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:420:9)
+<asynchronous suspension>
+#23     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#24     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:364:5)
+<asynchronous suspension>
+#25     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+<asynchronous suspension>
+#26     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+<asynchronous suspension>
+#27     main (package:flutter_tools/executable.dart:93:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.24.0, on Microsoft Windows [Version 10.0.22631.4037], locale en-US)
+    • Flutter version 3.24.0 on channel stable at C:\src\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 80c2e84975 (3 weeks ago), 2024-07-30 23:06:49 +0700
+    • Engine revision b8800d88be
+    • Dart version 3.5.0
+    • DevTools version 2.37.2
+
+[✓] Windows Version (Installed version of Windows is version 10 or higher)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    • Android SDK at C:\Users\izzul\AppData\Local\Android\Sdk
+    • Platform android-34, build-tools 34.0.0
+    • Java binary at: C:\Program Files\Android\Android Studio\jbr\bin\java
+    • Java version OpenJDK Runtime Environment (build 17.0.7+0-b2043.56-10550314)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[✓] Android Studio (version 2023.1)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 17.0.7+0-b2043.56-10550314)
+
+[✓] VS Code (version 1.92.2)
+    • VS Code at C:\Users\izzul\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.94.0
+
+[✓] Connected device (2 available)
+    • Chrome (web) • chrome • web-javascript • Google Chrome 127.0.6533.120
+    • Edge (web)   • edge   • web-javascript • Microsoft Edge 127.0.2651.105
+
+[✓] Network resources
+    • All expected network resources are available.
+
+• No issues found!
+```
