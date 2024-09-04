@@ -8,4 +8,8 @@ export '/home_pages/home_page_user/home_page_user_widget.dart'
 export '/edit_profile/profile/profile_widget.dart' show ProfileWidget;
 export '/edit_profile/edit_profile/edit_profile_widget.dart'
     show EditProfileWidget;
-export '/about_us/about_us_widget.dart' show AboutUsWidget;
+export '/about_us/about_us/about_us_widget.dart' show AboutUsWidget;
+export '/password/forgot_password/forgot_password_widget.dart'
+    show ForgotPasswordWidget;
+export '/password/change_password/change_password_widget.dart'
+    show ChangePasswordWidget;
