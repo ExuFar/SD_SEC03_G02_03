@@ -147,25 +147,24 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
       body: Stack(
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
               width: double.infinity,
               constraints: const BoxConstraints(
-                maxWidth: 570.0,
+                maxWidth: 570,
               ),
               decoration: const BoxDecoration(),
               child: Align(
-                alignment: const AlignmentDirectional(0.0, -0.75),
+                alignment: const AlignmentDirectional(0, -0.75),
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
+                  padding: const EdgeInsets.all(18),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 15.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 15),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
@@ -176,15 +175,15 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                   alignment: const AlignmentDirectional(-0.9, -0.67),
                                   child: FlutterFlowIconButton(
                                     borderColor: Colors.transparent,
-                                    borderRadius: 20.0,
-                                    borderWidth: 11.0,
-                                    buttonSize: 35.0,
+                                    borderRadius: 20,
+                                    borderWidth: 11,
+                                    buttonSize: 35,
                                     fillColor: const Color(0xE07C1113),
                                     hoverColor: const Color(0xFFA86A6B),
                                     icon: const Icon(
                                       Icons.chevron_left,
                                       color: Color(0xFFDAD7DD),
-                                      size: 20.0,
+                                      size: 20,
                                     ),
                                     onPressed: () async {
                                       context.pushNamed(
@@ -203,14 +202,14 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      25.0, 0.0, 0.0, 0.0),
+                                      25, 0, 0, 0),
                                   child: Text(
                                     'Forgot Password',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineLarge
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 25.0,
+                                          fontSize: 25,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w800,
                                         ),
@@ -222,7 +221,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(18.0),
+                          padding: const EdgeInsets.all(18),
                           child: Text(
                             'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
                             style: FlutterFlowTheme.of(context)
@@ -235,8 +234,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               animationsMap['textOnPageLoadAnimation2']!),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 12.0, 16.0, 0.0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                           child: SizedBox(
                             width: double.infinity,
                             child: TextFormField(
@@ -264,33 +263,33 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                   borderSide: BorderSide(
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
+                                    width: 2,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                     color: Color(0xFF4B39EF),
-                                    width: 2.0,
+                                    width: 2,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
+                                    width: 2,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
+                                    width: 2,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 24.0, 20.0, 24.0),
+                                    24, 24, 20, 24),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -309,10 +308,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               animationsMap['textFieldOnPageLoadAnimation']!),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 29.0, 16.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(16, 29, 16, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (_model
@@ -333,11 +332,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               },
                               text: 'Send Link',
                               options: FFButtonOptions(
-                                width: 250.0,
-                                height: 50.0,
-                                padding: const EdgeInsets.all(0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                width: 250,
+                                height: 50,
+                                padding: const EdgeInsets.all(0),
+                                iconPadding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: const Color(0xFF7C1113),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -345,12 +344,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                       fontFamily: 'Readex Pro',
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: const BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(24.0),
+                                borderRadius: BorderRadius.circular(24),
                               ),
                             ).animateOnPageLoad(
                                 animationsMap['buttonOnPageLoadAnimation']!),

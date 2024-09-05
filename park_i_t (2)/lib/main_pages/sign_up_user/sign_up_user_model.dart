@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class SignUpUserModel extends FlutterFlowModel<SignUpUserWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for Username widget.
   FocusNode? usernameFocusNode;

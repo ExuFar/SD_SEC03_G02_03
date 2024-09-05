@@ -151,13 +151,13 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
               Align(
                 alignment: const AlignmentDirectional(0.9, -0.94),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     'ParkIT.co',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Nunito',
                           color: Colors.white,
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
@@ -169,37 +169,37 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 alignment: const AlignmentDirectional(-4.9, -0.78),
                 child: Material(
                   color: Colors.transparent,
-                  elevation: 7.0,
+                  elevation: 7,
                   shape: const CircleBorder(),
                   child: Container(
-                    width: 370.0,
-                    height: 370.0,
+                    width: 370,
+                    height: 370,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       shape: BoxShape.circle,
                     ),
-                    alignment: const AlignmentDirectional(0.0, 0.3),
+                    alignment: const AlignmentDirectional(0, 0.3),
                   ),
                 ).animateOnPageLoad(
                     animationsMap['containerOnPageLoadAnimation']!),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, -0.9),
+                alignment: const AlignmentDirectional(-1, -0.9),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     'assets/images/MCLAREN_ON_TOP.png',
-                    width: 392.0,
-                    height: 480.0,
+                    width: 392,
+                    height: 480,
                     fit: BoxFit.cover,
-                    alignment: const Alignment(0.5, 0.0),
+                    alignment: const Alignment(0.5, 0),
                   ),
                 ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.3),
+                alignment: const AlignmentDirectional(-1, 0.3),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 20, 0),
                   child: Text(
                     'Find the nearest parking and start your day!',
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
@@ -213,9 +213,9 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.54),
+                alignment: const AlignmentDirectional(0, 0.54),
                 child: Padding(
-                  padding: const EdgeInsets.all(28.0),
+                  padding: const EdgeInsets.all(28),
                   child: Text(
                     'Parking system to assist user to find available slot near them. Apa nk cakap ni meow. ',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -230,7 +230,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.75),
+                alignment: const AlignmentDirectional(0, 0.75),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed(
@@ -245,11 +245,9 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                   },
                   text: 'Let\'s get started',
                   options: FFButtonOptions(
-                    height: 52.0,
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    height: 52,
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: Colors.white,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
@@ -257,12 +255,12 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
-                    elevation: 3.0,
+                    elevation: 3,
                     borderSide: const BorderSide(
                       color: Colors.transparent,
-                      width: 1.0,
+                      width: 1,
                     ),
-                    borderRadius: BorderRadius.circular(24.0),
+                    borderRadius: BorderRadius.circular(24),
                     hoverColor: const Color(0xFFA86A6B),
                     hoverTextColor: const Color(0xFFDAD7D6),
                   ),

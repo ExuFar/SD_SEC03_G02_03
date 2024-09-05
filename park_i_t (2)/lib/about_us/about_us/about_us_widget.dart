@@ -231,7 +231,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
@@ -245,7 +245,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                         child: const Icon(
                           Icons.auto_awesome_outlined,
                           color: Color(0xFF7C1113),
-                          size: 24.0,
+                          size: 24,
                         ).animateOnPageLoad(
                             animationsMap['iconOnPageLoadAnimation1']!),
                       ),
@@ -254,7 +254,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                         child: const Icon(
                           Icons.stacked_line_chart,
                           color: Color(0xFF7C1113),
-                          size: 24.0,
+                          size: 24,
                         ).animateOnPageLoad(
                             animationsMap['iconOnPageLoadAnimation2']!),
                       ),
@@ -263,21 +263,21 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                           Align(
                             alignment: const AlignmentDirectional(1.2, 0.6),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/mclaren_side_view_-_Copy.png',
-                                width: 255.0,
-                                height: 144.0,
+                                width: 255,
+                                height: 144,
                                 fit: BoxFit.fitWidth,
                               ),
                             ).animateOnPageLoad(
                                 animationsMap['imageOnPageLoadAnimation']!),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -0.8),
+                            alignment: const AlignmentDirectional(0, -0.8),
                             child: Container(
                               width: double.infinity,
-                              height: 279.0,
+                              height: 279,
                               decoration: const BoxDecoration(),
                               child: Stack(
                                 children: [
@@ -286,10 +286,9 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -298,8 +297,8 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Text(
                                                   'About Us',
                                                   style: FlutterFlowTheme.of(
@@ -307,8 +306,8 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                                       .headlineLarge
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 27.0,
-                                                        letterSpacing: 2.0,
+                                                        fontSize: 27,
+                                                        letterSpacing: 2,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -321,7 +320,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            40.0, 0.0, 40.0, 0.0),
+                                            40, 0, 40, 0),
                                         child: Text(
                                           'Founded by Ahmad Syazwan and his partner Muhammad Farihin on April 2, 2024, ParkIt is a smart parking app designed to simplify the parking experience. By providing real-time updates on parking availability, ParkIt helps users quickly find nearby parking spots, reducing the time spent searching and minimizing frustration. We are committed to leveraging the latest IoT technology to create an efficient and user-friendly parking solution.',
                                           textAlign: TextAlign.center,
@@ -344,10 +343,10 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                 'containerOnPageLoadAnimation1']!),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.18),
+                            alignment: const AlignmentDirectional(0, 0.18),
                             child: Container(
                               width: double.infinity,
-                              height: 222.0,
+                              height: 222,
                               decoration: const BoxDecoration(),
                               child: Stack(
                                 children: [
@@ -355,10 +354,9 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -367,8 +365,8 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(1, -1),
                                                 child: Text(
                                                   'Mission',
                                                   style: FlutterFlowTheme.of(
@@ -376,8 +374,8 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                                       .headlineLarge
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 27.0,
-                                                        letterSpacing: 2.0,
+                                                        fontSize: 27,
+                                                        letterSpacing: 2,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -390,7 +388,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            40.0, 0.0, 40.0, 0.0),
+                                            40, 0, 40, 0),
                                         child: Text(
                                           'Our mission at ParkIt is to enhance urban mobility by making parking smarter and more convenient. We aim to deliver accurate, timely information that helps users find parking with ease, improving their daily commutes and contributing to a more organized and accessible city environment.',
                                           textAlign: TextAlign.center,
@@ -413,31 +411,30 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                 'containerOnPageLoadAnimation2']!),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(16),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(-1.0, -0.96),
+                                    alignment: const AlignmentDirectional(-1, -0.96),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 0.0, 0.0),
+                                          8, 0, 0, 0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
-                                        borderRadius: 20.0,
-                                        borderWidth: 11.0,
-                                        buttonSize: 35.0,
+                                        borderRadius: 20,
+                                        borderWidth: 11,
+                                        buttonSize: 35,
                                         fillColor: const Color(0xE07C1113),
                                         hoverColor: const Color(0xFFA86A6B),
                                         icon: const Icon(
                                           Icons.chevron_left,
                                           color: Color(0xFFDAD7DD),
-                                          size: 20.0,
+                                          size: 20,
                                         ),
                                         onPressed: () async {
                                           context.safePop();
@@ -451,7 +448,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -0.88),
+                            alignment: const AlignmentDirectional(0, -0.88),
                             child: Text(
                               'ParkIT.co',
                               style: FlutterFlowTheme.of(context)
@@ -459,7 +456,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                   .override(
                                     fontFamily: 'Nunito',
                                     color: const Color(0xFF7C1113),
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -473,34 +470,34 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 126.0,
+                      height: 126,
                       decoration: const BoxDecoration(
                         color: Color(0xFF7C1113),
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 8.0,
+                            blurRadius: 8,
                             color: Colors.black,
                             offset: Offset(
-                              0.0,
-                              2.0,
+                              0,
+                              2,
                             ),
-                            spreadRadius: 2.0,
+                            spreadRadius: 2,
                           )
                         ],
                       ),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            alignment: const AlignmentDirectional(0, -1),
                             child: Padding(
-                              padding: const EdgeInsets.all(14.0),
+                              padding: const EdgeInsets.all(14),
                               child: Text(
                                 'Contact Us',
                                 style: FlutterFlowTheme.of(context)
@@ -517,22 +514,22 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                           Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.2),
+                                alignment: const AlignmentDirectional(0, -0.2),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
+                                          0, 0, 8, 0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
-                                        borderRadius: 11.0,
-                                        buttonSize: 40.0,
+                                        borderRadius: 11,
+                                        buttonSize: 40,
                                         icon: const Icon(
                                           Icons.mail_outline,
                                           color: Colors.white,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                         onPressed: () {
                                           print('IconButton pressed ...');
@@ -553,22 +550,22 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.5),
+                                alignment: const AlignmentDirectional(0, 0.5),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
+                                          0, 0, 8, 0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
-                                        borderRadius: 11.0,
-                                        buttonSize: 40.0,
+                                        borderRadius: 11,
+                                        buttonSize: 40,
                                         icon: const Icon(
                                           Icons.phone,
                                           color: Colors.white,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                         onPressed: () {
                                           print('IconButton pressed ...');
@@ -577,7 +574,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget>
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 43.0, 0.0),
+                                          0, 0, 43, 0),
                                       child: Text(
                                         '+60 11-1060 4522',
                                         style: FlutterFlowTheme.of(context)

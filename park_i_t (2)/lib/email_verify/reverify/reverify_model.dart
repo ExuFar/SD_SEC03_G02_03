@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_page_user_widget.dart' show HomePageUserWidget;
+import 'reverify_widget.dart' show ReverifyWidget;
 import 'package:flutter/material.dart';
 
-class HomePageUserModel extends FlutterFlowModel<HomePageUserWidget> {
+class ReverifyModel extends FlutterFlowModel<ReverifyWidget> {
   @override
   void initState(BuildContext context) {}
 
