@@ -81,11 +81,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const LoginUserWidget() : const MainWidget(),
         ),
         FFRoute(
-          name: 'Main',
-          path: '/main',
-          builder: (context, params) => const MainWidget(),
-        ),
-        FFRoute(
           name: 'LoginUser',
           path: '/loginUser',
           builder: (context, params) => const LoginUserWidget(),
@@ -99,6 +94,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePageUser',
           path: '/homePageUser',
           builder: (context, params) => const HomePageUserWidget(),
+        ),
+        FFRoute(
+          name: 'Profile',
+          path: '/profile',
+          builder: (context, params) => const ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'editProfile',
+          path: '/editProfile',
+          builder: (context, params) => const EditProfileWidget(),
+        ),
+        FFRoute(
+          name: 'AboutUs',
+          path: '/aboutUs',
+          builder: (context, params) => const AboutUsWidget(),
+        ),
+        FFRoute(
+          name: 'forgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => const ForgotPasswordWidget(),
+        ),
+        FFRoute(
+          name: 'changePassword',
+          path: '/changePassword',
+          builder: (context, params) => const ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: 'HomePageAdmin',
+          path: '/homePageAdmin',
+          builder: (context, params) => const HomePageAdminWidget(),
+        ),
+        FFRoute(
+          name: 'Main',
+          path: '/main',
+          builder: (context, params) => const MainWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
