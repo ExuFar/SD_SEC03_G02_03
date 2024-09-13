@@ -201,15 +201,18 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
                       shadows: [
-                        Shadow(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          offset: const Offset(2.0, 2.0),
+                        const Shadow(
+                          color: Color(0xFF14181B),
+                          offset: Offset(2.0, 2.0),
                           blurRadius: 8.0,
                         )
                       ],
                     ),
-                    colors: const [],
-                    gradientDirection: GradientDirection.ttb,
+                    colors: [
+                      FlutterFlowTheme.of(context).primaryBackground,
+                      FlutterFlowTheme.of(context).secondaryBackground
+                    ],
+                    gradientDirection: GradientDirection.ltr,
                     gradientType: GradientType.linear,
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation1']!),

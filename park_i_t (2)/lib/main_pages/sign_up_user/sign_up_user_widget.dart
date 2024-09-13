@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'sign_up_user_model.dart';
 export 'sign_up_user_model.dart';
@@ -286,7 +285,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Form(
                           key: _model.formKey,
-                          autovalidateMode: AutovalidateMode.disabled,
+                          autovalidateMode: AutovalidateMode.always,
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, -0.15),
                             child: SingleChildScrollView(
@@ -642,10 +641,6 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                           validator: _model
                                               .passwordTextControllerValidator
                                               .asValidator(context),
-                                          inputFormatters: [
-                                            FilteringTextInputFormatter.allow(
-                                                RegExp('[a-zA-Z0-9]'))
-                                          ],
                                         ),
                                       ),
                                     ),
@@ -773,10 +768,6 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                           validator: _model
                                               .reEnterPasswordTextControllerValidator
                                               .asValidator(context),
-                                          inputFormatters: [
-                                            FilteringTextInputFormatter.allow(
-                                                RegExp('[a-zA-Z0-9]'))
-                                          ],
                                         ),
                                       ),
                                     ),
@@ -788,7 +779,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.03, 0.66),
+                        alignment: const AlignmentDirectional(-0.05, 0.73),
                         child: FFButtonWidget(
                           onPressed: () async {
                             await authManager.refreshUser();
