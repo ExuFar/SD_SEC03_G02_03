@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'main_model.dart';
 export 'main_model.dart';
 
@@ -27,6 +28,37 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
     _model = createModel(context, () => MainModel());
 
     animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          BlurEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 130.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-100.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -35,30 +67,6 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             delay: 0.15.ms,
             duration: 800.0.ms,
             begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.15.ms,
-            duration: 800.0.ms,
-            begin: const Offset(-38.0, -12.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'imageOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.15.ms,
-            duration: 800.0.ms,
-            begin: const Offset(-60.0, -41.0),
             end: const Offset(0.0, 0.0),
           ),
         ],
@@ -141,65 +149,76 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
           top: true,
           child: Stack(
             children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF760F11),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  'assets/images/parkingbckground3.jpg',
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+              Opacity(
+                opacity: 0.7,
+                child: Align(
+                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xFF2D2D2D), Colors.black],
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.0, -1.0),
+                        end: AlignmentDirectional(0, 1.0),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.9, -0.94),
+                alignment: const AlignmentDirectional(-1.0, -0.75),
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
+                  padding: const EdgeInsetsDirectional.fromSTEB(7.0, 0.0, 0.0, 0.0),
+                  child: const Icon(
+                    Icons.rectangle_outlined,
+                    color: Color(0xFF7C1113),
+                    size: 200.0,
+                  ).animateOnPageLoad(
+                      animationsMap['iconOnPageLoadAnimation']!),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.2, -0.65),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: GradientText(
                     'ParkIT.co',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Nunito',
-                          color: Colors.white,
-                          fontSize: 18,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                      fontFamily: 'Sora',
+                      color: Colors.white,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          offset: const Offset(2.0, 2.0),
+                          blurRadius: 8.0,
+                        )
+                      ],
+                    ),
+                    colors: const [],
+                    gradientDirection: GradientDirection.ttb,
+                    gradientType: GradientType.linear,
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation1']!),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-4.9, -0.78),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 7,
-                  shape: const CircleBorder(),
-                  child: Container(
-                    width: 370,
-                    height: 370,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      shape: BoxShape.circle,
-                    ),
-                    alignment: const AlignmentDirectional(0, 0.3),
-                  ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation']!),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-1, -0.9),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'assets/images/MCLAREN_ON_TOP.png',
-                    width: 392,
-                    height: 480,
-                    fit: BoxFit.cover,
-                    alignment: const Alignment(0.5, 0),
-                  ),
-                ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-1, 0.3),
+                alignment: const AlignmentDirectional(-1.0, 0.3),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 20, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 20.0, 0.0),
                   child: Text(
                     'Find the nearest parking and start your day!',
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
@@ -213,11 +232,11 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 0.54),
+                alignment: const AlignmentDirectional(0.0, 0.54),
                 child: Padding(
-                  padding: const EdgeInsets.all(28),
+                  padding: const EdgeInsets.all(28.0),
                   child: Text(
-                    'Parking system to assist user to find available slot near them. Apa nk cakap ni meow. ',
+                    'ParkIT will assist you to find an available slot nearby. Don\'t stress-stress mah. Hidup bossku.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Nunito',
                           color: const Color(0xFFDAD7D6),
@@ -230,7 +249,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 0.75),
+                alignment: const AlignmentDirectional(0.0, 0.75),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed(
@@ -245,24 +264,26 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                   },
                   text: 'Let\'s get started',
                   options: FFButtonOptions(
-                    height: 52,
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                    color: Colors.white,
+                    height: 52.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: const Color(0xFF7C1113),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFF7C1113),
+                          color: Colors.white,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
-                    elevation: 3,
+                    elevation: 3.0,
                     borderSide: const BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(24),
-                    hoverColor: const Color(0xFFA86A6B),
-                    hoverTextColor: const Color(0xFFDAD7D6),
+                    borderRadius: BorderRadius.circular(24.0),
+                    hoverColor: const Color(0xFFF2F2F2),
+                    hoverTextColor: const Color(0xFF5B0D0F),
                   ),
                 ).animateOnPageLoad(
                     animationsMap['buttonOnPageLoadAnimation']!),

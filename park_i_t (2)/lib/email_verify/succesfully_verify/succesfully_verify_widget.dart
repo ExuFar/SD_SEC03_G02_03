@@ -38,29 +38,29 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 338,
-        height: 101,
+        width: 338.0,
+        height: 101.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [
             BoxShadow(
-              blurRadius: 4,
+              blurRadius: 4.0,
               color: Colors.black,
               offset: Offset(
-                0,
-                2,
+                0.0,
+                2.0,
               ),
             )
           ],
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(18.0),
           border: Border.all(
             color: FlutterFlowTheme.of(context).alternate,
           ),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+          padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -68,9 +68,9 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
             children: [
               Flexible(
                 child: Align(
-                  alignment: const AlignmentDirectional(0, 0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,11 +83,11 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                             children: [
                               const Flexible(
                                 child: Padding(
-                                  padding: EdgeInsets.all(4),
+                                  padding: EdgeInsets.all(4.0),
                                   child: Icon(
                                     Icons.add_task_rounded,
                                     color: Color(0xE07C1113),
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                 ),
                               ),
@@ -105,13 +105,14 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                 child: Align(
                                   alignment: const AlignmentDirectional(-0.3, -2.4),
                                   child: FlutterFlowIconButton(
-                                    borderRadius: 20,
-                                    borderWidth: 1,
-                                    buttonSize: 22,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 22.0,
+                                    hoverIconColor: const Color(0xFF5B0D0F),
                                     icon: const Icon(
                                       Icons.close_rounded,
                                       color: Color(0xE07C1113),
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                     onPressed: () async {
                                       context.safePop();
@@ -119,12 +120,12 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 8)),
+                            ].divide(const SizedBox(width: 8.0)),
                           ),
                         ),
                         Flexible(
                           child: Align(
-                            alignment: const AlignmentDirectional(0, -0.5),
+                            alignment: const AlignmentDirectional(0.0, -0.5),
                             child: Text(
                               'Hi! Welcome to ParkIT Parking System!',
                               textAlign: TextAlign.justify,
@@ -143,7 +144,7 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                   ),
                 ),
               ),
-            ].divide(const SizedBox(width: 8)),
+            ].divide(const SizedBox(width: 8.0)),
           ),
         ),
       ),

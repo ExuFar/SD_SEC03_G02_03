@@ -70,19 +70,19 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 380,
-        height: 370,
+        width: 380.0,
+        height: 370.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24.0),
           shape: BoxShape.rectangle,
         ),
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(25, 29, 25, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(25.0, 29.0, 25.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -90,7 +90,8 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Text(
                         'Edit Profile Picture',
                         style:
@@ -106,7 +107,8 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               'Upload a new photo below to change your profile picture.',
                               textAlign: TextAlign.center,
@@ -125,29 +127,30 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0, -0.76),
+                            alignment: const AlignmentDirectional(0.0, -0.76),
                             child: Container(
-                              width: 90,
-                              height: 88,
+                              width: 90.0,
+                              height: 88.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 boxShadow: const [
                                   BoxShadow(
-                                    blurRadius: 4,
+                                    blurRadius: 4.0,
                                     color: Colors.black,
                                     offset: Offset(
-                                      0,
-                                      2,
+                                      0.0,
+                                      2.0,
                                     ),
                                   )
                                 ],
-                                borderRadius: BorderRadius.circular(24),
+                                borderRadius: BorderRadius.circular(24.0),
                                 shape: BoxShape.rectangle,
                               ),
                               child: Stack(
@@ -155,11 +158,12 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                   if (currentUserPhoto != '')
                                     AuthUserStreamWidget(
                                       builder: (context) => ClipRRect(
-                                        borderRadius: BorderRadius.circular(24),
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
                                         child: Image.network(
                                           currentUserPhoto,
-                                          width: 300,
-                                          height: 200,
+                                          width: 300.0,
+                                          height: 200.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -168,7 +172,7 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                               ?.isNotEmpty ??
                                           false))
                                     Align(
-                                      alignment: const AlignmentDirectional(0, 0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -179,12 +183,12 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                         },
                                         child: ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(24),
+                                              BorderRadius.circular(24.0),
                                           child: Image.memory(
                                             _model.uploadedLocalFile1.bytes ??
                                                 Uint8List.fromList([]),
-                                            width: 300,
-                                            height: 200,
+                                            width: 300.0,
+                                            height: 200.0,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -199,15 +203,16 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 30),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 30.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 8.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   final selectedMedia =
@@ -253,12 +258,12 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                 },
                                 text: 'Upload Image',
                                 options: FFButtonOptions(
-                                  width: 160,
-                                  height: 50,
+                                  width: 160.0,
+                                  height: 50.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -268,16 +273,18 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                         color: const Color(0xFF57636C),
                                         letterSpacing: 0.0,
                                       ),
-                                  elevation: 2,
-                                  borderRadius: BorderRadius.circular(20),
+                                  elevation: 2.0,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  hoverColor: const Color(0xFF8A8E92),
+                                  hoverTextColor: const Color(0xFFF1F4F8),
                                 ),
                               ),
                             ),
                           ),
                           Expanded(
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(7, 0, 0, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  7.0, 0.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   {
@@ -334,12 +341,12 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                 },
                                 text: 'Save Changes',
                                 options: FFButtonOptions(
-                                  width: 160,
-                                  height: 50,
+                                  width: 160.0,
+                                  height: 50.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color: const Color(0xFF7C1113),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -347,8 +354,9 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0.0,
                                       ),
-                                  elevation: 2,
-                                  borderRadius: BorderRadius.circular(20),
+                                  elevation: 2.0,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  hoverColor: const Color(0xFF5B0D0F),
                                 ),
                               ),
                             ),
@@ -356,7 +364,7 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                         ],
                       ),
                     ),
-                  ].divide(const SizedBox(height: 16)),
+                  ].divide(const SizedBox(height: 16.0)),
                 ),
               ),
             ),
@@ -364,13 +372,13 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
               alignment: const AlignmentDirectional(0.8, -0.9),
               child: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 20,
-                borderWidth: 1,
-                buttonSize: 24,
+                borderRadius: 20.0,
+                borderWidth: 1.0,
+                buttonSize: 24.0,
                 icon: const Icon(
                   Icons.close_rounded,
                   color: Color(0xE07C1113),
-                  size: 24,
+                  size: 24.0,
                 ),
                 onPressed: () async {
                   context.safePop();

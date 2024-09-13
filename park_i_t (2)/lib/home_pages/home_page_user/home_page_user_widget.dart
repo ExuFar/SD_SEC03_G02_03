@@ -240,26 +240,26 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(0, -1),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   width: double.infinity,
-                  height: 289,
+                  height: 289.0,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFF7C1113), Color(0xFFF1F4F8)],
-                      stops: [0, 1],
-                      begin: AlignmentDirectional(0, -1),
-                      end: AlignmentDirectional(0, 1),
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
                   ),
                   child: Align(
                     alignment: const AlignmentDirectional(-1.1, 1.2),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         'assets/images/mclaren_side_view.png',
-                        width: 300,
-                        height: 144,
+                        width: 300.0,
+                        height: 144.0,
                         fit: BoxFit.fitWidth,
                       ),
                     ).animateOnPageLoad(
@@ -270,7 +270,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
               Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0, -0.6),
+                    alignment: const AlignmentDirectional(0.0, -0.6),
                     child: SingleChildScrollView(
                       primary: false,
                       child: Column(
@@ -281,15 +281,16 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                           Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0, -1),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 152,
+                                  height: 152.0,
                                   decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0, -1),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Stack(
-                                      alignment: const AlignmentDirectional(-1, 1),
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 1.0),
                                       children: [
                                         Align(
                                           alignment: const AlignmentDirectional(
@@ -297,7 +298,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    57, 0, 53, 0),
+                                                    57.0, 0.0, 53.0, 0.0),
                                             child: AuthUserStreamWidget(
                                               builder: (context) => Text(
                                                 'Hello, $currentUserDisplayName!',
@@ -305,9 +306,9 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                  fontFamily: 'Nunito Sans',
+                                                  fontFamily: 'Sora',
                                                   color: Colors.white,
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                   shadows: [
@@ -325,11 +326,11 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0, -1.16),
+                                              const AlignmentDirectional(0.0, -1.16),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    53, 0, 53, 0),
+                                                    53.0, 0.0, 53.0, 0.0),
                                             child: Text(
                                               'LET\'S GET PARKING!',
                                               textAlign: TextAlign.start,
@@ -339,8 +340,8 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
-                                                    fontSize: 55,
-                                                    letterSpacing: 2,
+                                                    fontSize: 55.0,
+                                                    letterSpacing: 2.0,
                                                     fontWeight: FontWeight.bold,
                                                     shadows: [
                                                       const Shadow(
@@ -369,9 +370,10 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 45, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 45.0, 0.0),
                       child: const Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -404,11 +406,11 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: const AlignmentDirectional(0, -0.1),
+                        alignment: const AlignmentDirectional(0.0, -0.1),
                         child: Stack(
                           children: [
                             Stack(
@@ -440,34 +442,35 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(0, 0.15),
+                                      alignment:
+                                          const AlignmentDirectional(0.0, 0.15),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Container(
-                                          width: 100,
-                                          height: 100,
+                                          width: 100.0,
+                                          height: 100.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             boxShadow: const [
                                               BoxShadow(
-                                                blurRadius: 10,
+                                                blurRadius: 10.0,
                                                 color: Color(0xFF7C1113),
                                                 offset: Offset(
-                                                  0,
-                                                  2,
+                                                  0.0,
+                                                  2.0,
                                                 ),
-                                                spreadRadius: 5,
+                                                spreadRadius: 5.0,
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(22),
+                                                BorderRadius.circular(22.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0, 0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(8),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Text(
                                                 '02(db)',
                                                 textAlign: TextAlign.center,
@@ -488,10 +491,11 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0, 0.25),
+                                      alignment:
+                                          const AlignmentDirectional(0.0, 0.25),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 0),
+                                            15.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'Slots',
                                           style: FlutterFlowTheme.of(context)
@@ -515,19 +519,19 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0, 0.5),
+                                  alignment: const AlignmentDirectional(0.0, 0.5),
                                   child: FFButtonWidget(
                                     onPressed: () {
                                       print('ViewSlots pressed ...');
                                     },
                                     text: 'View Slots',
                                     options: FFButtonOptions(
-                                      height: 40,
+                                      height: 40.0,
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 24, 0),
+                                          24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
-                                              0, 0, 0, 0),
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: const Color(0xFF7C1113),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -536,12 +540,13 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
-                                      elevation: 3,
+                                      elevation: 3.0,
                                       borderSide: const BorderSide(
                                         color: Colors.transparent,
-                                        width: 1,
+                                        width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(24),
+                                      borderRadius: BorderRadius.circular(24.0),
+                                      hoverColor: const Color(0xFF5B0D0F),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'buttonOnPageLoadAnimation']!),
@@ -550,15 +555,15 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                   alignment: const AlignmentDirectional(-0.64, -0.96),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 18, 0, 0),
+                                        0.0, 18.0, 0.0, 0.0),
                                     child: Text(
                                       'ParkIT.co',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Nunito',
+                                            fontFamily: 'Sora',
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -567,19 +572,20 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(1, -0.95),
+                                  alignment: const AlignmentDirectional(1.0, -0.95),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 28, 0),
+                                        0.0, 0.0, 28.0, 0.0),
                                     child: FlutterFlowIconButton(
                                       borderColor: Colors.transparent,
-                                      borderRadius: 20,
-                                      borderWidth: 1,
-                                      buttonSize: 40,
+                                      borderRadius: 20.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 40.0,
+                                      hoverIconColor: const Color(0xFF8A8E92),
                                       icon: const Icon(
                                         Icons.person_rounded,
                                         color: Colors.white,
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                       onPressed: () async {
                                         context.pushNamed('Profile');
@@ -596,34 +602,34 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 126,
+                          height: 126.0,
                           decoration: const BoxDecoration(
                             color: Color(0xFF7C1113),
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 8,
+                                blurRadius: 8.0,
                                 color: Colors.black,
                                 offset: Offset(
-                                  0,
-                                  2,
+                                  0.0,
+                                  2.0,
                                 ),
-                                spreadRadius: 2,
+                                spreadRadius: 2.0,
                               )
                             ],
                           ),
                           child: Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0, -1),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(14),
+                                  padding: const EdgeInsets.all(14.0),
                                   child: Text(
                                     'Contact Us',
                                     style: FlutterFlowTheme.of(context)
@@ -640,7 +646,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                               Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0, -0.2),
+                                    alignment: const AlignmentDirectional(0.0, -0.2),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -649,15 +655,15 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 8, 0),
+                                                  0.0, 0.0, 8.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 11,
-                                            buttonSize: 40,
+                                            borderRadius: 11.0,
+                                            buttonSize: 40.0,
                                             icon: const Icon(
                                               Icons.mail_outline,
                                               color: Colors.white,
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                             onPressed: () {
                                               print('IconButton pressed ...');
@@ -678,7 +684,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0, 0.5),
+                                    alignment: const AlignmentDirectional(0.0, 0.5),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -687,15 +693,15 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 8, 0),
+                                                  0.0, 0.0, 8.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 11,
-                                            buttonSize: 40,
+                                            borderRadius: 11.0,
+                                            buttonSize: 40.0,
                                             icon: const Icon(
                                               Icons.phone,
                                               color: Colors.white,
-                                              size: 24,
+                                              size: 24.0,
                                             ),
                                             onPressed: () {
                                               print('IconButton pressed ...');
@@ -705,7 +711,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 43, 0),
+                                                  0.0, 0.0, 43.0, 0.0),
                                           child: Text(
                                             '+60 11-1060 4522',
                                             style: FlutterFlowTheme.of(context)

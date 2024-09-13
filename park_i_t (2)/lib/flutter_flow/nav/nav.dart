@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -81,11 +80,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const LoginUserWidget() : const MainWidget(),
         ),
         FFRoute(
-          name: 'Main',
-          path: '/main',
-          builder: (context, params) => const MainWidget(),
-        ),
-        FFRoute(
           name: 'LoginUser',
           path: '/loginUser',
           builder: (context, params) => const LoginUserWidget(),
@@ -124,6 +118,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'changePassword',
           path: '/changePassword',
           builder: (context, params) => const ChangePasswordWidget(),
+        ),
+        FFRoute(
+          name: 'HomePageAdmin',
+          path: '/homePageAdmin',
+          builder: (context, params) => const HomePageAdminWidget(),
+        ),
+        FFRoute(
+          name: 'Main',
+          path: '/main',
+          builder: (context, params) => const MainWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -308,13 +312,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
+              ? const Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 50.0,
+                    height: 50.0,
                     child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
+                        Color(0xFF7C1113),
                       ),
                     ),
                   ),

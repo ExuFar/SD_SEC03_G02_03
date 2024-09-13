@@ -5,18 +5,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'verify_email_model.dart';
-export 'verify_email_model.dart';
+import 'successful_update_model.dart';
+export 'successful_update_model.dart';
 
-class VerifyEmailWidget extends StatefulWidget {
-  const VerifyEmailWidget({super.key});
+class SuccessfulUpdateWidget extends StatefulWidget {
+  const SuccessfulUpdateWidget({super.key});
 
   @override
-  State<VerifyEmailWidget> createState() => _VerifyEmailWidgetState();
+  State<SuccessfulUpdateWidget> createState() => _SuccessfulUpdateWidgetState();
 }
 
-class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
-  late VerifyEmailModel _model;
+class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
+  late SuccessfulUpdateModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -27,7 +27,7 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VerifyEmailModel());
+    _model = createModel(context, () => SuccessfulUpdateModel());
   }
 
   @override
@@ -42,8 +42,8 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 284.0,
-        height: 212.0,
+        width: 355.0,
+        height: 172.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [
@@ -84,20 +84,17 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               const Flexible(
-                                child: Padding(
-                                  padding: EdgeInsets.all(6.0),
-                                  child: Icon(
-                                    Icons.mail_rounded,
-                                    color: Color(0xE07C1113),
-                                    size: 24.0,
-                                  ),
+                                child: Icon(
+                                  Icons.done_all,
+                                  color: Color(0xE07C1113),
+                                  size: 24.0,
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: Text(
-                                  'Verify your email',
+                                  'Profile updated succesfully',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
@@ -153,9 +150,9 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
                             alignment: const AlignmentDirectional(0.0, -1.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 0.0),
+                                  30.0, 0.0, 20.0, 0.0),
                               child: Text(
-                                'Click the button below to verify your email and start enjoying ParkIT!',
+                                'Your profile has been updated. You can now view the changes.',
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -194,11 +191,11 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
-                              text: 'Verify Email',
+                              text: 'ok',
                               options: FFButtonOptions(
-                                width: 116.0,
+                                width: 64.0,
                                 height: 44.0,
-                                padding: const EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: const Color(0xE07C1113),
@@ -206,7 +203,7 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 13.0,
+                                      fontSize: 14.0,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 1.0,
