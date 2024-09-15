@@ -126,10 +126,10 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 14.0),
+                                    20.0, 0.0, 0.0, 14.0),
                                 child: Text(
                                   'Sign Out',
                                   textAlign: TextAlign.center,
@@ -147,13 +147,13 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                             ),
                             Expanded(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 0.0),
+                                      20.0, 0.0, 8.0, 0.0),
                                   child: Text(
                                     'Are you sure you want to\nsign out ?',
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(

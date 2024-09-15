@@ -156,7 +156,7 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                   height: double.infinity,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFFDAD7D6), Color(0xFF7C1113)],
+                      colors: [Colors.black, Color(0xFF5B0D0F)],
                       stops: [0.0, 1.0],
                       begin: AlignmentDirectional(0.0, -1.0),
                       end: AlignmentDirectional(0, 1.0),
@@ -183,7 +183,7 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                       width: 385.0,
                       height: 373.0,
                       fit: BoxFit.cover,
-                      alignment: const Alignment(-1.0, 0.0),
+                      alignment: const Alignment(-1.0, -0.1),
                     ),
                   )
                       .animateOnPageLoad(
@@ -225,7 +225,7 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                   'ParkIT.co',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Sora',
-                        color: const Color(0xFF7C1113),
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,

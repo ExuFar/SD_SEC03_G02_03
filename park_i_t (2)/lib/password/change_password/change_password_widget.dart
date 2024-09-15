@@ -180,7 +180,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget>
                                     borderRadius: 20.0,
                                     borderWidth: 11.0,
                                     buttonSize: 35.0,
-                                    fillColor: const Color(0xE07C1113),
+                                    fillColor: const Color(0xFF5B0D0F),
                                     hoverColor: const Color(0xFFA86A6B),
                                     icon: const Icon(
                                       Icons.chevron_left,
@@ -330,7 +330,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget>
                                 padding: const EdgeInsets.all(0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFF7C1114),
+                                color: const Color(0xFF5B0D0F),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(

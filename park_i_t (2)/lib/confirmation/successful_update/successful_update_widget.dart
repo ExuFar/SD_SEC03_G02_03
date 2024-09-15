@@ -86,7 +86,7 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                               const Flexible(
                                 child: Icon(
                                   Icons.done_all,
-                                  color: Color(0xE07C1113),
+                                  color: Color(0xFF5B0D0F),
                                   size: 24.0,
                                 ),
                               ),
@@ -115,7 +115,7 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                                     hoverIconColor: const Color(0xFF5B0D0F),
                                     icon: const Icon(
                                       Icons.close_rounded,
-                                      color: Color(0xE07C1113),
+                                      color: Color(0xFF5B0D0F),
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
@@ -198,7 +198,7 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                                 padding: const EdgeInsets.all(0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xE07C1113),
+                                color: const Color(0xFF5B0D0F),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(

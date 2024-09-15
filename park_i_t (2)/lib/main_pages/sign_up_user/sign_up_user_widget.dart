@@ -164,7 +164,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                   height: double.infinity,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFFDAD7D6), Color(0xFF7C1113)],
+                      colors: [Color(0xFFDAD7D6), Color(0xFF5B0D0F)],
                       stops: [0.0, 1.0],
                       begin: AlignmentDirectional(0.0, -1.0),
                       end: AlignmentDirectional(0, 1.0),

@@ -82,7 +82,6 @@ dependencies:
   sign_in_with_apple: 4.3.0
   sign_in_with_apple_platform_interface: 1.0.0
   sign_in_with_apple_web: 1.0.1
-  simple_gradient_text: 1.2.3
   sqflite: 2.2.6
   stream_transform: 2.1.0
   timeago: 3.6.1

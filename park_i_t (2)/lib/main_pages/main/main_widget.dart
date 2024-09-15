@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'main_model.dart';
 export 'main_model.dart';
 
@@ -192,7 +191,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 alignment: const AlignmentDirectional(0.2, -0.65),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: GradientText(
+                  child: Text(
                     'ParkIT.co',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).displayLarge.override(
@@ -208,12 +207,6 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                         )
                       ],
                     ),
-                    colors: [
-                      FlutterFlowTheme.of(context).primaryBackground,
-                      FlutterFlowTheme.of(context).secondaryBackground
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation1']!),
                 ),
