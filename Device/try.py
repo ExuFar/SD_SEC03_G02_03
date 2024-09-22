@@ -90,14 +90,5 @@ except KeyboardInterrupt:
     print("Program stopped")
     
 finally:
-    GPIO.cleanup()'''
-    
- 
-#lcd.move_to(1,0)
-#lcd.putstr("SELAMAT DATANG  KE\n")
-#lcd.move_to(5,1)
-#lcd.putstr("SECTION 40\n")
-#lcd.move_to(1,2)
-#lcd.putstr("THIS IS PARKIT CAR\n")
-#lcd.move_to(3,3)
-#lcd.putstr("PARKING SYSTEM")
+    GPIO.cleanup()
+'''
