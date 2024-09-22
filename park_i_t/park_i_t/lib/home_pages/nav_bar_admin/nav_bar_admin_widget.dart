@@ -56,7 +56,7 @@ class _NavBarAdminWidgetState extends State<NavBarAdminWidget> {
                   children: [
                     FlutterFlowIconButton(
                       buttonSize: 50.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
+                      fillColor: FlutterFlowTheme.of(context).bloodRed,
                       icon: const Icon(
                         Icons.person,
                         color: Colors.white,
@@ -68,7 +68,7 @@ class _NavBarAdminWidgetState extends State<NavBarAdminWidget> {
                     ),
                     FlutterFlowIconButton(
                       buttonSize: 50.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
+                      fillColor: FlutterFlowTheme.of(context).bloodRed,
                       icon: const Icon(
                         Icons.local_parking,
                         color: Colors.white,
@@ -80,7 +80,7 @@ class _NavBarAdminWidgetState extends State<NavBarAdminWidget> {
                     ),
                     FlutterFlowIconButton(
                       buttonSize: 50.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
+                      fillColor: FlutterFlowTheme.of(context).bloodRed,
                       icon: const FaIcon(
                         FontAwesomeIcons.history,
                         color: Colors.white,
@@ -92,7 +92,7 @@ class _NavBarAdminWidgetState extends State<NavBarAdminWidget> {
                     ),
                     FlutterFlowIconButton(
                       buttonSize: 50.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
+                      fillColor: FlutterFlowTheme.of(context).bloodRed,
                       icon: const Icon(
                         Icons.feedback,
                         color: Colors.white,
