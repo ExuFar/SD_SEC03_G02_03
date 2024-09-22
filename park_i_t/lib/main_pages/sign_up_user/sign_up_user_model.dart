@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class SignUpUserModel extends FlutterFlowModel<SignUpUserWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for Username widget.
   FocusNode? usernameFocusNode;
@@ -36,6 +35,11 @@ class SignUpUserModel extends FlutterFlowModel<SignUpUserWidget> {
       return 'Field is required';
     }
 
+    if (!RegExp(
+            '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_])[A-Za-z\\d\\W_]{8,10}\$')
+        .hasMatch(val)) {
+      return '8-10 characters long,  at least one uppercase letter, one lowercase letter, one number, and one special character.';
+    }
     return null;
   }
 
@@ -51,6 +55,11 @@ class SignUpUserModel extends FlutterFlowModel<SignUpUserWidget> {
       return 'Field is required';
     }
 
+    if (!RegExp(
+            '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\$!%*?&_])[A-Za-z\\d@\$!%*?&_]{8,10}\$')
+        .hasMatch(val)) {
+      return 'Password must be between 8-10 characters long, and include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+    }
     return null;
   }
 

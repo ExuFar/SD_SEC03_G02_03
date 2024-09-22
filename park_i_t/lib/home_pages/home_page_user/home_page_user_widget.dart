@@ -80,6 +80,32 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-43.99999999999999, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: const Color(0xFF7C1113),
+            angle: 0.524,
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -192,32 +218,6 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(-43.99999999999999, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.3,
-            end: 1.0,
-          ),
-          ShimmerEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            color: const Color(0xFF7C1113),
-            angle: 0.524,
-          ),
-        ],
-      ),
     });
   }
 
@@ -270,95 +270,139 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
               Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Stack(
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 231.0,
-                                decoration: const BoxDecoration(),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, -1.0),
-                                  child: Stack(
-                                    alignment: const AlignmentDirectional(-1.0, 1.0),
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-0.99, -0.35),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  57.0, 0.0, 53.0, 0.0),
-                                          child: AuthUserStreamWidget(
-                                            builder: (context) => Text(
-                                              'Hello, $currentUserDisplayName!',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                fontFamily: 'Nunito Sans',
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                shadows: [
-                                                  const Shadow(
-                                                    color: Colors.black,
-                                                    offset: Offset(2.0, 2.0),
-                                                    blurRadius: 6.0,
-                                                  )
-                                                ],
-                                              ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation1']!),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.7),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  53.0, 0.0, 53.0, 0.0),
-                                          child: Text(
-                                            'LET\'S GET PARKING!',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .displayLarge
-                                                .override(
-                                                  fontFamily: 'Poppins',
+                    alignment: const AlignmentDirectional(0.0, -0.6),
+                    child: SingleChildScrollView(
+                      primary: false,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Stack(
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 152.0,
+                                  decoration: const BoxDecoration(),
+                                  child: Align(
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    child: Stack(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 1.0),
+                                      children: [
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.99, -1.55),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    57.0, 0.0, 53.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Text(
+                                                'Hello, $currentUserDisplayName!',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                  fontFamily: 'Sora',
                                                   color: Colors.white,
-                                                  fontSize: 54.0,
-                                                  letterSpacing: 2.0,
-                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
                                                   shadows: [
                                                     const Shadow(
-                                                      color: Color(0xFF000306),
+                                                      color: Colors.black,
                                                       offset: Offset(2.0, 2.0),
                                                       blurRadius: 6.0,
                                                     )
                                                   ],
-                                                  lineHeight: 1.0,
                                                 ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation2']!),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'textOnPageLoadAnimation1']!),
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.16),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    53.0, 0.0, 53.0, 0.0),
+                                            child: Text(
+                                              'LET\'S GET PARKING!',
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .displayLarge
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Colors.white,
+                                                    fontSize: 55.0,
+                                                    letterSpacing: 2.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    shadows: [
+                                                      const Shadow(
+                                                        color:
+                                                            Color(0xFF000306),
+                                                        offset:
+                                                            Offset(2.0, 2.0),
+                                                        blurRadius: 6.0,
+                                                      )
+                                                    ],
+                                                    lineHeight: 1.1,
+                                                  ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation2']!),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 45.0, 0.0),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.8, -0.14),
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              color: Color(0xFF7C1113),
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.8, -0.14),
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              color: Color(0xFFC3AAAA),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.8, -0.14),
+                            child: Icon(
+                              Icons.chevron_right_rounded,
+                              color: Color(0xFFB07373),
+                            ),
+                          ),
+                        ],
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   Align(
@@ -502,12 +546,13 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(24.0),
+                                      hoverColor: const Color(0xFF5B0D0F),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'buttonOnPageLoadAnimation']!),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-0.66, -0.96),
+                                  alignment: const AlignmentDirectional(-0.64, -0.96),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 18.0, 0.0, 0.0),
@@ -516,9 +561,9 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Nunito',
+                                            fontFamily: 'Sora',
                                             color: Colors.white,
-                                            fontSize: 12.0,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -530,12 +575,13 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                   alignment: const AlignmentDirectional(1.0, -0.95),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 22.0, 0.0),
+                                        0.0, 0.0, 28.0, 0.0),
                                     child: FlutterFlowIconButton(
                                       borderColor: Colors.transparent,
                                       borderRadius: 20.0,
                                       borderWidth: 1.0,
                                       buttonSize: 40.0,
+                                      hoverIconColor: const Color(0xFF8A8E92),
                                       icon: const Icon(
                                         Icons.person_rounded,
                                         color: Colors.white,
@@ -688,39 +734,6 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                             animationsMap['containerOnPageLoadAnimation2']!),
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 45.0, 0.0),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.8, -0.14),
-                          child: Icon(
-                            Icons.chevron_right_rounded,
-                            color: Color(0xFFC3AAAA),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.8, -0.14),
-                          child: Icon(
-                            Icons.chevron_right_rounded,
-                            color: Color(0xFFB07373),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.8, -0.14),
-                          child: Icon(
-                            Icons.chevron_right_rounded,
-                            color: Color(0xFF7C1113),
-                          ),
-                        ),
-                      ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation']!),
                   ),
                 ],
               ),

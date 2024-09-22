@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'log_out_model.dart';
 export 'log_out_model.dart';
@@ -112,7 +111,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Nunito',
+                                                  fontFamily: 'Sora',
                                                   color: const Color(0xFF7C1113),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
@@ -127,10 +126,10 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 14.0),
+                                    20.0, 0.0, 0.0, 14.0),
                                 child: Text(
                                   'Sign Out',
                                   textAlign: TextAlign.center,
@@ -148,14 +147,13 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                             ),
                             Expanded(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 0.0),
-                                  child: AutoSizeText(
+                                      20.0, 0.0, 8.0, 0.0),
+                                  child: Text(
                                     'Are you sure you want to\nsign out ?',
-                                    textAlign: TextAlign.center,
-                                    minFontSize: 80.0,
+                                    textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
@@ -212,8 +210,8 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(20.0),
-                                            hoverColor: const Color(0xFFA86A6B),
-                                            hoverTextColor: const Color(0xFFECE9E7),
+                                            hoverColor: const Color(0xFF8A8E92),
+                                            hoverTextColor: const Color(0xFFF1F4F8),
                                           ),
                                         ),
                                       ),
@@ -260,8 +258,7 @@ class _LogOutWidgetState extends State<LogOutWidget> {
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(20.0),
-                                            hoverColor: const Color(0xFFA86A6B),
-                                            hoverTextColor: const Color(0xFFECE9E7),
+                                            hoverColor: const Color(0xFF5B0D0F),
                                           ),
                                         ),
                                       ),

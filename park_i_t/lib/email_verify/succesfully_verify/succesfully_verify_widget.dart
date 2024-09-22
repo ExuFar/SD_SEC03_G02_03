@@ -108,6 +108,7 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                     borderRadius: 20.0,
                                     borderWidth: 1.0,
                                     buttonSize: 22.0,
+                                    hoverIconColor: const Color(0xFF5B0D0F),
                                     icon: const Icon(
                                       Icons.close_rounded,
                                       color: Color(0xE07C1113),

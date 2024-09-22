@@ -1,5 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/email_verify/reverify/reverify_widget.dart';
+import '/email_verify/succesfully_verify/succesfully_verify_widget.dart';
 import '/email_verify/verify_email/verify_email_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -162,7 +164,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                   height: double.infinity,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFFDAD7D6), Color(0xFF7C1113)],
+                      colors: [Color(0xFFDAD7D6), Color(0xFF5B0D0F)],
                       stops: [0.0, 1.0],
                       begin: AlignmentDirectional(0.0, -1.0),
                       end: AlignmentDirectional(0, 1.0),
@@ -200,13 +202,13 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-0.88, -0.77),
+                alignment: const AlignmentDirectional(-0.86, -0.79),
                 child: Text(
                   'ParkIT.co',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Nunito',
+                        fontFamily: 'Sora',
                         color: const Color(0xFF7C1113),
-                        fontSize: 12.0,
+                        fontSize: 18.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -280,10 +282,10 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.2),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Form(
                           key: _model.formKey,
-                          autovalidateMode: AutovalidateMode.disabled,
+                          autovalidateMode: AutovalidateMode.always,
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, -0.15),
                             child: SingleChildScrollView(
@@ -358,10 +360,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               ),
                                               focusedBorder:
                                                   UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
+                                                borderSide: const BorderSide(
+                                                  color: Color(0xFF7C1113),
                                                   width: 2.0,
                                                 ),
                                                 borderRadius:
@@ -401,6 +401,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                                   letterSpacing: 0.0,
                                                 ),
                                             keyboardType: TextInputType.name,
+                                            cursorColor: const Color(0xFF7C1113),
                                             validator: _model
                                                 .usernameTextControllerValidator
                                                 .asValidator(context),
@@ -471,10 +472,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                              borderSide: const BorderSide(
+                                                color: Color(0xFF7C1113),
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -514,6 +513,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               ),
                                           keyboardType:
                                               TextInputType.emailAddress,
+                                          cursorColor: const Color(0xFF7C1113),
                                           validator: _model
                                               .emailTextControllerValidator
                                               .asValidator(context),
@@ -581,10 +581,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                              borderSide: const BorderSide(
+                                                color: Color(0xFF7C1113),
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -615,7 +613,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               Icons.lock_outline_rounded,
                                             ),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
+                                              onTap: () => safeSetState(
                                                 () => _model
                                                         .passwordVisibility =
                                                     !_model.passwordVisibility,
@@ -639,6 +637,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               ),
                                           keyboardType:
                                               TextInputType.visiblePassword,
+                                          cursorColor: const Color(0xFF7C1113),
                                           validator: _model
                                               .passwordTextControllerValidator
                                               .asValidator(context),
@@ -708,10 +707,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
+                                              borderSide: const BorderSide(
+                                                color: Color(0xFF7C1113),
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -742,7 +739,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               Icons.lock_outline_rounded,
                                             ),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
+                                              onTap: () => safeSetState(
                                                 () => _model
                                                         .reEnterPasswordVisibility =
                                                     !_model
@@ -767,6 +764,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                               ),
                                           keyboardType:
                                               TextInputType.visiblePassword,
+                                          cursorColor: const Color(0xFF7C1113),
                                           validator: _model
                                               .reEnterPasswordTextControllerValidator
                                               .asValidator(context),
@@ -781,48 +779,78 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.68),
+                        alignment: const AlignmentDirectional(-0.05, 0.73),
                         child: FFButtonWidget(
                           onPressed: () async {
                             await authManager.refreshUser();
-                            Function() navigate = () {};
                             if (_model.formKey.currentState == null ||
                                 !_model.formKey.currentState!.validate()) {
                               return;
                             }
-                            if (currentUserEmailVerified == true) {
-                              GoRouter.of(context).prepareAuthEvent();
-                              if (_model.passwordTextController.text !=
-                                  _model.reEnterPasswordTextController.text) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Passwords don\'t match!',
-                                    ),
+                            GoRouter.of(context).prepareAuthEvent();
+                            if (_model.passwordTextController.text !=
+                                _model.reEnterPasswordTextController.text) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'Passwords don\'t match!',
+                                  ),
+                                ),
+                              );
+                              return;
+                            }
+
+                            final user =
+                                await authManager.createAccountWithEmail(
+                              context,
+                              _model.emailTextController.text,
+                              _model.passwordTextController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            await UsersRecord.collection
+                                .doc(user.uid)
+                                .update(createUsersRecordData(
+                                  displayName:
+                                      _model.usernameTextController.text,
+                                  role: 'customer',
+                                ));
+
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return GestureDetector(
+                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: const VerifyEmailWidget(),
                                   ),
                                 );
-                                return;
-                              }
+                              },
+                            ).then((value) => safeSetState(() {}));
 
-                              final user =
-                                  await authManager.createAccountWithEmail(
-                                context,
-                                _model.emailTextController.text,
-                                _model.passwordTextController.text,
-                              );
-                              if (user == null) {
-                                return;
-                              }
-
-                              await UsersRecord.collection
-                                  .doc(user.uid)
-                                  .update(createUsersRecordData(
-                                    displayName:
-                                        _model.usernameTextController.text,
-                                  ));
-
-                              navigate = () => context.goNamedAuth(
-                                  'LoginUser', context.mounted);
+                            if (currentUserEmailVerified == true) {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () =>
+                                        FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const SuccesfullyVerifyWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
                             } else {
                               await showModalBottomSheet(
                                 isScrollControlled: true,
@@ -835,14 +863,14 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                         FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const VerifyEmailWidget(),
+                                      child: const ReverifyWidget(),
                                     ),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
                             }
 
-                            navigate();
+                            context.pushNamedAuth('LoginUser', context.mounted);
                           },
                           text: 'Sign Up',
                           options: FFButtonOptions(
@@ -866,15 +894,14 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(24.0),
-                            hoverColor: const Color(0xFFA86A6B),
-                            hoverTextColor: const Color(0xFFECE9E7),
+                            hoverColor: const Color(0xFF5B0D0F),
                           ),
                         ),
                       ),
                       Align(
                         alignment: const AlignmentDirectional(-0.28, 0.84),
                         child: Text(
-                          'already have an account?',
+                          'Already have an account?',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Nunito',
@@ -907,6 +934,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Nunito',
+                                  color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
                                   fontStyle: FontStyle.italic,
                                   decoration: TextDecoration.underline,
@@ -926,7 +954,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                   borderWidth: 11.0,
                   buttonSize: 35.0,
                   fillColor: const Color(0xE07C1113),
-                  hoverColor: const Color(0xFFA86A6B),
+                  hoverColor: const Color(0xFF5B0D0F),
                   icon: const Icon(
                     Icons.chevron_left,
                     color: Color(0xFFDAD7DD),
