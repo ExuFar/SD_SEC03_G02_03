@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/email_verify/reverify/reverify_widget.dart';
 import '/email_verify/succesfully_verify/succesfully_verify_widget.dart';
 import '/email_verify/verify_email/verify_email_widget.dart';
@@ -787,37 +786,6 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                                 !_model.formKey.currentState!.validate()) {
                               return;
                             }
-                            GoRouter.of(context).prepareAuthEvent();
-                            if (_model.passwordTextController.text !=
-                                _model.reEnterPasswordTextController.text) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                    'Passwords don\'t match!',
-                                  ),
-                                ),
-                              );
-                              return;
-                            }
-
-                            final user =
-                                await authManager.createAccountWithEmail(
-                              context,
-                              _model.emailTextController.text,
-                              _model.passwordTextController.text,
-                            );
-                            if (user == null) {
-                              return;
-                            }
-
-                            await UsersRecord.collection
-                                .doc(user.uid)
-                                .update(createUsersRecordData(
-                                  displayName:
-                                      _model.usernameTextController.text,
-                                  role: 'customer',
-                                ));
-
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
@@ -870,7 +838,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                               ).then((value) => safeSetState(() {}));
                             }
 
-                            context.pushNamedAuth('LoginUser', context.mounted);
+                            context.pushNamed('LoginUser');
                           },
                           text: 'Sign Up',
                           options: FFButtonOptions(
@@ -884,7 +852,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Lato',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),

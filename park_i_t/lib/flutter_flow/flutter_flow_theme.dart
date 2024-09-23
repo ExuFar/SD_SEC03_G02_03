@@ -32,6 +32,13 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color white;
+  late Color lightCoral;
+  late Color cornellRed;
+  late Color bloodRed;
+  late Color blackBean;
+  late Color black;
+
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
   @Deprecated('Use displaySmall instead')
@@ -119,6 +126,13 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFF9CF58);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color white = const Color(0xFFFFFFFF);
+  late Color lightCoral = const Color(0xFFEC8383);
+  late Color cornellRed = const Color(0xFFA91919);
+  late Color bloodRed = const Color(0xFF6B0F0F);
+  late Color blackBean = const Color(0xFF360808);
+  late Color black = const Color(0xFF000000);
 }
 
 abstract class Typography {
@@ -159,108 +173,108 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Rubik';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Rubik';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Rubik';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'Rubik';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'Rubik';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'Rubik';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'Rubik';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Rubik',
+        color: theme.white,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Lato';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.info,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Lato';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.info,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Lato';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.secondaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Lato';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.secondaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Lato';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.secondaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Lato';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Lato';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Lato';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
-        color: theme.primaryText,
+        'Lato',
+        color: theme.white,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );

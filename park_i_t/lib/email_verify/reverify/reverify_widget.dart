@@ -83,12 +83,13 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              const Flexible(
+                              Flexible(
                                 child: Padding(
-                                  padding: EdgeInsets.all(4.0),
+                                  padding: const EdgeInsets.all(4.0),
                                   child: Icon(
                                     Icons.no_accounts_rounded,
-                                    color: Color(0xE07C1113),
+                                    color:
+                                        FlutterFlowTheme.of(context).bloodRed,
                                     size: 24.0,
                                   ),
                                 ),
@@ -99,6 +100,7 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'Rubik',
+                                      color: FlutterFlowTheme.of(context).black,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
@@ -111,10 +113,12 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                                     borderRadius: 20.0,
                                     borderWidth: 1.0,
                                     buttonSize: 24.0,
-                                    hoverIconColor: const Color(0xFF5B0D0F),
-                                    icon: const Icon(
+                                    hoverIconColor:
+                                        FlutterFlowTheme.of(context).blackBean,
+                                    icon: Icon(
                                       Icons.close_rounded,
-                                      color: Color(0xE07C1113),
+                                      color:
+                                          FlutterFlowTheme.of(context).bloodRed,
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
@@ -157,6 +161,7 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Nunito',
+                                      color: FlutterFlowTheme.of(context).black,
                                       letterSpacing: 0.0,
                                       fontStyle: FontStyle.italic,
                                     ),
@@ -197,11 +202,11 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                                 padding: const EdgeInsets.all(10.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xE07C1113),
+                                color: FlutterFlowTheme.of(context).bloodRed,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
                                       fontSize: 13.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -211,7 +216,8 @@ class _ReverifyWidgetState extends State<ReverifyWidget> {
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
-                                hoverColor: const Color(0xFF5B0D0F),
+                                hoverColor:
+                                    FlutterFlowTheme.of(context).blackBean,
                                 hoverTextColor: const Color(0xFFECE9E7),
                               ),
                             ),

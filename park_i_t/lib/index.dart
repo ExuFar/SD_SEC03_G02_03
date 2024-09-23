@@ -8,11 +8,19 @@ export '/confirmation/edit_profile/profile/profile_widget.dart'
     show ProfileWidget;
 export '/confirmation/edit_profile/edit_profile_widget.dart'
     show EditProfileWidget;
-export '/about_us/about_us/about_us_widget.dart' show AboutUsWidget;
 export '/password/forgot_password/forgot_password_widget.dart'
     show ForgotPasswordWidget;
 export '/password/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
-export '/home_pages/home_page_admin/home_page_admin_widget.dart'
-    show HomePageAdminWidget;
-export '/main_pages/main/main_widget.dart' show MainWidget;
+export '/main_pages/welcome_page/welcome_page_widget.dart'
+    show WelcomePageWidget;
+export '/main_pages/sign_in_new/sign_in_new_widget.dart' show SignInNewWidget;
+export '/main_pages/sign_up_new/sign_up_new_widget.dart' show SignUpNewWidget;
+export '/home_pages/homepage_admin/homepage_admin_widget.dart'
+    show HomepageAdminWidget;
+export '/confirmation/edit_profile/edit_profile_new/edit_profile_new_widget.dart'
+    show EditProfileNewWidget;
+export '/home_pages/homepage_customer/homepage_customer_widget.dart'
+    show HomepageCustomerWidget;
+export '/about_us/contact_us/contact_us_widget.dart' show ContactUsWidget;
+export '/about_us/about_us/about_us_widget.dart' show AboutUsWidget;

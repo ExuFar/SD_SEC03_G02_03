@@ -420,7 +420,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -492,8 +492,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Lato',
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -590,8 +589,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Lato',
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -659,74 +657,63 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed('AboutUs');
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            const Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 0.0, 0.0),
-                                              child: Icon(
-                                                Icons.info_outline_rounded,
-                                                color: Color(0xFF7C1113),
-                                                size: 24.0,
-                                              ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          const Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.info_outline_rounded,
+                                              color: Color(0xFF7C1113),
+                                              size: 24.0,
                                             ),
-                                            Padding(
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    25.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'About Us',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(1.0, 0.0),
+                                            child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      25.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'About Us',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        151.0, 0.0, 0.0, 0.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 40.0,
-                                                  icon: const Icon(
-                                                    Icons
-                                                        .arrow_forward_ios_rounded,
-                                                    color: Color(0xFF7C1113),
-                                                    size: 24.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    context
-                                                        .pushNamed('AboutUs');
-                                                  },
+                                                      151.0, 0.0, 0.0, 0.0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
+                                                icon: const Icon(
+                                                  Icons
+                                                      .arrow_forward_ios_rounded,
+                                                  color: Color(0xFF7C1113),
+                                                  size: 24.0,
                                                 ),
+                                                onPressed: () {
+                                                  print(
+                                                      'IconButton pressed ...');
+                                                },
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -785,7 +772,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Readex Pro',
+                                                      fontFamily: 'Lato',
                                                       color: Colors.white,
                                                       letterSpacing: 0.0,
                                                     ),

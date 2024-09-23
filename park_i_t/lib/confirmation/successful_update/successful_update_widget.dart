@@ -92,13 +92,15 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
+                                    5.0, 2.0, 0.0, 0.0),
                                 child: Text(
                                   'Profile updated succesfully',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
                                         fontFamily: 'Rubik',
+                                        color:
+                                            FlutterFlowTheme.of(context).black,
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
@@ -150,7 +152,7 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                             alignment: const AlignmentDirectional(0.0, -1.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  30.0, 0.0, 20.0, 0.0),
+                                  30.0, 5.0, 20.0, 0.0),
                               child: Text(
                                 'Your profile has been updated. You can now view the changes.',
                                 textAlign: TextAlign.start,
@@ -158,6 +160,7 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Nunito',
+                                      color: FlutterFlowTheme.of(context).black,
                                       letterSpacing: 0.0,
                                       fontStyle: FontStyle.italic,
                                     ),
@@ -202,8 +205,8 @@ class _SuccessfulUpdateWidgetState extends State<SuccessfulUpdateWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 14.0,
+                                      fontFamily: 'Lato',
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 1.0,

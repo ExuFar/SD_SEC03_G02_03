@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -71,13 +72,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const LoginUserWidget() : const MainWidget(),
+          appStateNotifier.loggedIn ? const SignInNewWidget() : const WelcomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const LoginUserWidget() : const MainWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? const SignInNewWidget()
+              : const WelcomePageWidget(),
         ),
         FFRoute(
           name: 'LoginUser',
@@ -105,11 +107,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const EditProfileWidget(),
         ),
         FFRoute(
-          name: 'AboutUs',
-          path: '/aboutUs',
-          builder: (context, params) => const AboutUsWidget(),
-        ),
-        FFRoute(
           name: 'forgotPassword',
           path: '/forgotPassword',
           builder: (context, params) => const ForgotPasswordWidget(),
@@ -120,14 +117,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ChangePasswordWidget(),
         ),
         FFRoute(
-          name: 'HomePageAdmin',
-          path: '/homePageAdmin',
-          builder: (context, params) => const HomePageAdminWidget(),
+          name: 'welcomePage',
+          path: '/welcomePage',
+          builder: (context, params) => const WelcomePageWidget(),
         ),
         FFRoute(
-          name: 'Main',
-          path: '/main',
-          builder: (context, params) => const MainWidget(),
+          name: 'SignInNew',
+          path: '/signInNew',
+          builder: (context, params) => const SignInNewWidget(),
+        ),
+        FFRoute(
+          name: 'SignUpNew',
+          path: '/signUpNew',
+          builder: (context, params) => const SignUpNewWidget(),
+        ),
+        FFRoute(
+          name: 'homepageAdmin',
+          path: '/homepageAdmin',
+          builder: (context, params) => const HomepageAdminWidget(),
+        ),
+        FFRoute(
+          name: 'editProfileNew',
+          path: '/editProfileNew',
+          builder: (context, params) => const EditProfileNewWidget(),
+        ),
+        FFRoute(
+          name: 'homepageCustomer',
+          path: '/homepageCustomer',
+          builder: (context, params) => const HomepageCustomerWidget(),
+        ),
+        FFRoute(
+          name: 'contactUs',
+          path: '/contactUs',
+          builder: (context, params) => const ContactUsWidget(),
+        ),
+        FFRoute(
+          name: 'AboutUs',
+          path: '/aboutUs',
+          builder: (context, params) => const AboutUsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -298,7 +325,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/main';
+            return '/welcomePage';
           }
           return null;
         },
@@ -312,15 +339,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? const Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Color(0xFF7C1113),
-                      ),
-                    ),
+              ? Container(
+                  color: FlutterFlowTheme.of(context).bloodRed,
+                  child: Image.asset(
+                    'assets/images/splash.gif',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

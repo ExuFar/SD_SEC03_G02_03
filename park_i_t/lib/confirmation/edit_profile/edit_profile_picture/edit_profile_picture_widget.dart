@@ -94,12 +94,13 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                           const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Text(
                         'Edit Profile Picture',
-                        style:
-                            FlutterFlowTheme.of(context).headlineSmall.override(
-                                  fontFamily: 'Rubik',
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                              fontFamily: 'Rubik',
+                              color: FlutterFlowTheme.of(context).black,
+                              fontSize: 20.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ),
                     Row(
@@ -269,7 +270,7 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
                                         color: const Color(0xFF57636C),
                                         letterSpacing: 0.0,
                                       ),
@@ -347,11 +348,11 @@ class _EditProfilePictureWidgetState extends State<EditProfilePictureWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFF7C1113),
+                                  color: FlutterFlowTheme.of(context).bloodRed,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,

@@ -38,32 +38,6 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
     _model.passwordFocusNode ??= FocusNode();
 
     animationsMap.addAll({
-      'imageOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 800.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'imageOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(0.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -120,12 +94,6 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -155,12 +123,6 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                   width: double.infinity,
                   height: double.infinity,
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.black, Color(0xFF5B0D0F)],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
-                    ),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
@@ -170,27 +132,6 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                     shape: BoxShape.rectangle,
                   ),
                   alignment: const AlignmentDirectional(0.0, 0.0),
-                ),
-              ),
-              Opacity(
-                opacity: 0.9,
-                child: Align(
-                  alignment: const AlignmentDirectional(1.0, -1.25),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: Image.asset(
-                      'assets/images/MCLAREN_FRONT_VIEW.png',
-                      width: 385.0,
-                      height: 373.0,
-                      fit: BoxFit.cover,
-                      alignment: const Alignment(-1.0, -0.1),
-                    ),
-                  )
-                      .animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation']!)
-                      .animateOnActionTrigger(
-                        animationsMap['imageOnActionTriggerAnimation']!,
-                      ),
                 ),
               ),
               Align(
@@ -544,9 +485,6 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                                     'customer') {
                                   context.pushNamedAuth(
                                       'HomePageUser', context.mounted);
-                                } else {
-                                  context.pushNamedAuth(
-                                      'HomePageAdmin', context.mounted);
                                 }
                               } else {
                                 await showModalBottomSheet(
@@ -580,7 +518,7 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -682,7 +620,7 @@ class _LoginUserWidgetState extends State<LoginUserWidget>
                     size: 20.0,
                   ),
                   onPressed: () async {
-                    context.pushNamed('Main');
+                    context.pushNamed('welcomePage');
                   },
                 ).animateOnPageLoad(
                     animationsMap['iconButtonOnPageLoadAnimation']!),

@@ -459,6 +459,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                     currentUserDisplayName,
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Nunito',
+                          color: FlutterFlowTheme.of(context).black,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
@@ -506,7 +507,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -530,7 +531,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).black,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -551,7 +554,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             fontSize: 11.0,
                                             letterSpacing: 0.0,
                                             fontStyle: FontStyle.italic,
@@ -559,7 +562,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: OutlineInputBorder(
@@ -603,7 +606,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           fontSize: 11.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -634,7 +637,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).black,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -655,7 +660,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             fontSize: 11.0,
                                             letterSpacing: 0.0,
                                             fontStyle: FontStyle.italic,
@@ -663,7 +668,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             letterSpacing: 0.0,
                                           ),
                                       enabledBorder: OutlineInputBorder(
@@ -707,7 +712,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           fontSize: 11.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -740,7 +745,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
+                                        color:
+                                            FlutterFlowTheme.of(context).black,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -761,7 +768,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           fontSize: 11.0,
                                           letterSpacing: 0.0,
                                           fontStyle: FontStyle.italic,
@@ -769,7 +776,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           letterSpacing: 0.0,
                                         ),
                                     enabledBorder: OutlineInputBorder(
@@ -809,7 +816,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Lato',
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -861,7 +868,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Lato',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),

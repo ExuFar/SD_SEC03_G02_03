@@ -33,6 +33,18 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
     _model.emailAddressFocusNode ??= FocusNode();
 
     animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          BlurEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'iconButtonOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -146,6 +158,23 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: Stack(
         children: [
+          Opacity(
+            opacity: 0.2,
+            child: Container(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).bloodRed,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  'assets/images/background.png',
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+            ),
+          ),
           Align(
             alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
@@ -200,10 +229,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .headlineLarge
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'Rubik',
+                                          color: FlutterFlowTheme.of(context)
+                                              .black,
                                           fontSize: 25.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w800,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation1']!),
@@ -219,7 +249,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Lato',
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
                                   letterSpacing: 0.0,
                                 ),
                           ).animateOnPageLoad(
@@ -240,7 +272,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
+                                      color: FlutterFlowTheme.of(context).black,
                                       letterSpacing: 0.0,
                                     ),
                                 alignLabelWithHint: false,
@@ -248,7 +281,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
                                       letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
@@ -286,7 +319,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Lato',
+                                    color: FlutterFlowTheme.of(context).black,
                                     letterSpacing: 0.0,
                                   ),
                               maxLines: null,
@@ -333,7 +367,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Lato',
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,

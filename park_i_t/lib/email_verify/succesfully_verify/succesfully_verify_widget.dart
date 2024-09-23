@@ -81,12 +81,13 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              const Flexible(
+                              Flexible(
                                 child: Padding(
-                                  padding: EdgeInsets.all(4.0),
+                                  padding: const EdgeInsets.all(4.0),
                                   child: Icon(
                                     Icons.add_task_rounded,
-                                    color: Color(0xE07C1113),
+                                    color:
+                                        FlutterFlowTheme.of(context).bloodRed,
                                     size: 24.0,
                                   ),
                                 ),
@@ -97,6 +98,7 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'Rubik',
+                                      color: FlutterFlowTheme.of(context).black,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -108,10 +110,12 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                     borderRadius: 20.0,
                                     borderWidth: 1.0,
                                     buttonSize: 22.0,
-                                    hoverIconColor: const Color(0xFF5B0D0F),
-                                    icon: const Icon(
+                                    hoverIconColor:
+                                        FlutterFlowTheme.of(context).blackBean,
+                                    icon: Icon(
                                       Icons.close_rounded,
-                                      color: Color(0xE07C1113),
+                                      color:
+                                          FlutterFlowTheme.of(context).bloodRed,
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
@@ -133,6 +137,7 @@ class _SuccesfullyVerifyWidgetState extends State<SuccesfullyVerifyWidget> {
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Nunito',
+                                    color: FlutterFlowTheme.of(context).black,
                                     letterSpacing: 0.0,
                                     fontStyle: FontStyle.italic,
                                   ),

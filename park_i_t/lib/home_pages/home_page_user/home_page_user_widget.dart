@@ -422,7 +422,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
-                                      fontFamily: 'Outfit',
+                                      fontFamily: 'Rubik',
                                       color: Colors.black,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
@@ -536,7 +536,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Lato',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),
@@ -675,7 +675,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily: 'Lato',
                                                 color: Colors.white,
                                                 letterSpacing: 0.0,
                                               ),
@@ -717,7 +717,7 @@ class _HomePageUserWidgetState extends State<HomePageUserWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
+                                                  fontFamily: 'Lato',
                                                   color: Colors.white,
                                                   letterSpacing: 0.0,
                                                 ),
