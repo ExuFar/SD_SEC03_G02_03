@@ -22,27 +22,27 @@ pwm_entry = GPIO.PWM(SERVO_ENTRY_PIN, 50)
 pwm_exit = GPIO.PWM(SERVO_EXIT_PIN, 50)
 
 # Start the PWM with the servos in the neutral position (90 degrees)
-pwm_entry.start(7.5)  # 90 degrees position
-pwm_exit.start(7.5)   # 90 degrees position
+pwm_entry.start(9.5)  # 90 degrees position
+pwm_exit.start(9.5)   # 90 degrees position
 
 # Function to open the entry gate (servo 1)
 def open_entry_gate():
-    pwm_entry.ChangeDutyCycle(2.5)  # Move entry servo to 0 degrees (open)
+    pwm_entry.ChangeDutyCycle(3.5)  # Move entry servo to 0 degrees (open)
     time.sleep(1)
 
 # Function to close the entry gate (servo 1)
 def close_entry_gate():
-    pwm_entry.ChangeDutyCycle(12.5)  # Move entry servo to 90 degrees (closed)
+    pwm_entry.ChangeDutyCycle(9.5)  # Move entry servo to 90 degrees (closed)
     time.sleep(1)
 
 # Function to open the exit gate (servo 2)
 def open_exit_gate():
-    pwm_exit.ChangeDutyCycle(2.5)  # Move exit servo to 0 degrees (open)
+    pwm_exit.ChangeDutyCycle(3.5)  # Move exit servo to 0 degrees (open)
     time.sleep(1)
 
 # Function to close the exit gate (servo 2)
 def close_exit_gate():
-    pwm_exit.ChangeDutyCycle(12.5)  # Move exit servo to 90 degrees (closed)
+    pwm_exit.ChangeDutyCycle(9.5)  # Move exit servo to 90 degrees (closed)
     time.sleep(1)
 
 try:
