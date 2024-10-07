@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import time
 
 # GPIO Pin Definitions
+IR_PARKING1_PIN = 27  # IR sensor for parking slot 1
 IR_ENTRY_PIN = 27  # IR sensor for car entry
 IR_EXIT_PIN = 22  # IR sensor for car exit
 SERVO_ENTRY_PIN = 17     # GPIO pin for entry servo motor
@@ -50,13 +51,12 @@ def close_exit_gate():
     time.sleep(1)
 
 # Function to indicate parking spot status
-def update_leds(occupied):
+def update_led(occupied):
     if occupied:
         GPIO.output(GREEN_LED_PIN, GPIO.LOW)  # Turn off green LED
-        GPIO.output(RED_LED_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
-    else:
-        GPIO.output(GREEN_LED_PIN, GPIO.HIGH)  # Turn on green LED (empty)
-        GPIO.output(RED_LED_PIN, GPIO.LOW)    # Turn off red LED
+        
+    
+        
 
 
 
@@ -83,6 +83,18 @@ finally:
 
 
 
+try:
+    while True:
+        # Read the IR sensor input
+        if GPIO.input(IR_PARKING1_PIN) == GPIO.LOW:  # IR sensor triggered (car detected)
+            update_led(occupied=True)  # Car is present, mark as occupied
+        else:
+            update_led(occupied=False)  # No car, mark as empty
+
+        time.sleep(0.1)  # Short delay to avoid excessive CPU usage
+
+finally:
+    GPIO.cleanup()  # Clean up GPIO on exit
 
 
 
