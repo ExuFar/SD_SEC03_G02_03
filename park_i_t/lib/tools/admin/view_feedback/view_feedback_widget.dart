@@ -1,9 +1,11 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'view_feedback_model.dart';
 export 'view_feedback_model.dart';
 
@@ -126,75 +128,101 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                       ),
                     ),
                   ),
+                  Align(
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 15.0, 0.0, 0.0),
+                      child: Text(
+                        'Recent feedback from customer',
+                        textAlign: TextAlign.start,
+                        style: FlutterFlowTheme.of(context).labelLarge.override(
+                              fontFamily: 'Lato',
+                              color: const Color(0xFFA91919),
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: Text(
-                              'Recent feedback from customer',
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .labelLarge
-                                  .override(
-                                    fontFamily: 'Lato',
-                                    color: const Color(0xFFA91919),
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ),
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(16.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 10.0),
+                    child: StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitRing(
+                                color: FlutterFlowTheme.of(context).bloodRed,
+                                size: 50.0,
                               ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 20.0, 20.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                            ),
+                          );
+                        }
+                        List<UsersRecord> columnUsersRecordList =
+                            snapshot.data!;
+
+                        return SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: List.generate(
+                                columnUsersRecordList.length, (columnIndex) {
+                              final columnUsersRecord =
+                                  columnUsersRecordList[columnIndex];
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.967,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 20.0, 20.0, 20.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Text(
-                                          'John Doe',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'Rubik',
-                                                color: const Color(0xFF6B0F0F),
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            const Icon(
-                                              Icons.star,
-                                              color: Color(0xFFFFD700),
-                                              size: 20.0,
-                                            ),
                                             Text(
-                                              '4.5',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                              columnUsersRecord.displayName,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    fontFamily: 'Rubik',
+                                                    color: const Color(0xFF6B0F0F),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                const Icon(
+                                                  Icons.star,
+                                                  color: Color(0xFFFFD700),
+                                                  size: 20.0,
+                                                ),
+                                                Text(
+                                                  '4.5',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Lato',
@@ -202,47 +230,49 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                             const Color(0xFF6B0F0F),
                                                         letterSpacing: 0.0,
                                                       ),
+                                                ),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
-                                          ].divide(const SizedBox(width: 4.0)),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                    Text(
-                                      'Great parking experience! The app made it easy to find a spot.',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Lato',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Wrap(
-                                      spacing: 8.0,
-                                      runSpacing: 8.0,
-                                      alignment: WrapAlignment.start,
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.start,
-                                      direction: Axis.horizontal,
-                                      runAlignment: WrapAlignment.start,
-                                      verticalDirection: VerticalDirection.down,
-                                      clipBehavior: Clip.none,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFFF5F5F5),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 12.0, 8.0, 12.0),
-                                            child: Text(
-                                              'App Experience',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                        Text(
+                                          'Great parking experience! The app made it easy to find a spot.',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Lato',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        Wrap(
+                                          spacing: 8.0,
+                                          runSpacing: 8.0,
+                                          alignment: WrapAlignment.start,
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.start,
+                                          direction: Axis.horizontal,
+                                          runAlignment: WrapAlignment.start,
+                                          verticalDirection:
+                                              VerticalDirection.down,
+                                          clipBehavior: Clip.none,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFFF5F5F5),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 8.0, 12.0),
+                                                child: Text(
+                                                  'App Experience',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodySmall
                                                       .override(
                                                         fontFamily: 'Lato',
@@ -250,23 +280,23 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                             const Color(0xFF6B0F0F),
                                                         letterSpacing: 0.0,
                                                       ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFFF5F5F5),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 12.0, 8.0, 12.0),
-                                            child: Text(
-                                              'Availability',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFFF5F5F5),
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 12.0, 8.0, 12.0),
+                                                child: Text(
+                                                  'Availability',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodySmall
                                                       .override(
                                                         fontFamily: 'Lato',
@@ -274,18 +304,20 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                             const Color(0xFF6B0F0F),
                                                         letterSpacing: 0.0,
                                                       ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ].divide(const SizedBox(height: 16.0)),
                                     ),
-                                  ].divide(const SizedBox(height: 16.0)),
+                                  ),
                                 ),
-                              ),
-                            ),
+                              );
+                            }).divide(const SizedBox(height: 10.0)),
                           ),
-                        ].divide(const SizedBox(height: 24.0)),
-                      ),
+                        );
+                      },
                     ),
                   ),
                 ],

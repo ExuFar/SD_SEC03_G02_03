@@ -16,7 +16,7 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Has to be a valid email address.';
+      return 'Invalid email format.';
     }
     return null;
   }
@@ -34,7 +34,7 @@ class SignInModel extends FlutterFlowModel<SignInWidget> {
     if (!RegExp(
             '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_])[A-Za-z\\d\\W_]{8,10}\$')
         .hasMatch(val)) {
-      return 'Invalid text';
+      return 'Password must be 8-10 chars, with uppercase, lowercase, number & symbol.';
     }
     return null;
   }

@@ -146,21 +146,25 @@ class _SignInWidgetState extends State<SignInWidget>
           top: true,
           child: Stack(
             children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).bloodRed,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/background.png',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
+              Opacity(
+                opacity: 0.3,
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).bloodRed,
                   ),
-                ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/background.png',
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
+                ),
               ),
               Stack(
                 children: [
@@ -224,16 +228,15 @@ class _SignInWidgetState extends State<SignInWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             30.0, 0.0, 30.0, 25.0),
                         child: Container(
-                          width: double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: const [
                               BoxShadow(
-                                blurRadius: 5.0,
-                                color: Colors.black,
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
                                 offset: Offset(
-                                  5.0,
-                                  5.0,
+                                  0.0,
+                                  2.0,
                                 ),
                               )
                             ],
@@ -575,7 +578,7 @@ class _SignInWidgetState extends State<SignInWidget>
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Lato',
-                                            color: Colors.black,
+                                            color: const Color(0xFF0000EE),
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -705,7 +708,7 @@ class _SignInWidgetState extends State<SignInWidget>
                                                 .bodyLarge
                                                 .override(
                                                   fontFamily: 'Lato',
-                                                  color: Colors.black,
+                                                  color: const Color(0xFF0000EE),
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   fontStyle: FontStyle.italic,
