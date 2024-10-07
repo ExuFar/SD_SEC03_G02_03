@@ -55,7 +55,8 @@ def update_led(occupied):
     if occupied:
         GPIO.output(GREEN_LED_PIN, GPIO.LOW)  # Turn off green LED
         
-    
+    else:
+        GPIO.output(GREEN_LED_PIN, GPIO.HIGH)  # Turn on green LED (empty)
         
 
 
