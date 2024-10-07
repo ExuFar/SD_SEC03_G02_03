@@ -58,12 +58,12 @@ class _NavBarAdminWidgetState extends State<NavBarAdminWidget> {
                       buttonSize: 50.0,
                       fillColor: FlutterFlowTheme.of(context).bloodRed,
                       icon: const Icon(
-                        Icons.person,
+                        Icons.people_alt_rounded,
                         color: Colors.white,
                         size: 20.0,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        context.pushNamed('customerList');
                       },
                     ),
                     FlutterFlowIconButton(

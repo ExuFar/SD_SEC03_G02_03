@@ -9,6 +9,8 @@ IR_ENTRY_PIN = 27  # IR sensor for car entry
 IR_EXIT_PIN = 22  # IR sensor for car exit
 SERVO_ENTRY_PIN = 17     # GPIO pin for entry servo motor
 SERVO_EXIT_PIN = 18   # GPIO pin for exit servo motor
+GREEN_LED_PIN = 23  # GPIO pin for green LED (indicates empty spot)
+RED_LED_PIN = 24    # GPIO pin for red LED (indicates occupied spot)
 
 # Setup GPIO mode
 GPIO.setmode(GPIO.BCM)
@@ -16,6 +18,8 @@ GPIO.setup(SERVO_ENTRY_PIN, GPIO.OUT)
 GPIO.setup(SERVO_EXIT_PIN, GPIO.OUT)
 GPIO.setup(IR_ENTRY_PIN, GPIO.IN)
 GPIO.setup(IR_EXIT_PIN, GPIO.IN)
+GPIO.setup(GREEN_LED_PIN, GPIO.OUT)
+GPIO.setup(RED_LED_PIN, GPIO.OUT)
 
 # Set the PWM signal for the servo motors (50 Hz frequency)
 pwm_entry = GPIO.PWM(SERVO_ENTRY_PIN, 50)
@@ -45,6 +49,17 @@ def close_exit_gate():
     pwm_exit.ChangeDutyCycle(9.5)  # Move exit servo to 90 degrees (closed)
     time.sleep(1)
 
+# Function to indicate parking spot status
+def update_leds(occupied):
+    if occupied:
+        GPIO.output(GREEN_LED_PIN, GPIO.LOW)  # Turn off green LED
+        GPIO.output(RED_LED_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
+    else:
+        GPIO.output(GREEN_LED_PIN, GPIO.HIGH)  # Turn on green LED (empty)
+        GPIO.output(RED_LED_PIN, GPIO.LOW)    # Turn off red LED
+
+
+
 try:
     while True:
         # Detect car entry
@@ -65,6 +80,17 @@ finally:
     pwm_entry.stop()  # Stop PWM for entry servo
     pwm_exit.stop()   # Stop PWM for exit servo
     GPIO.cleanup()    # Clean up GPIO
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 I2C_ADDR = 0x27

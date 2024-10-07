@@ -265,7 +265,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'SignInNew',
+                                      'SignIn',
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
