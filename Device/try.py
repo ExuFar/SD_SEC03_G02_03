@@ -54,7 +54,7 @@ def close_exit_gate():
 def update_led(occupied):
     if occupied:
         GPIO.output(GREEN_LED_PIN, GPIO.LOW)  # Turn off green LED
-        
+        GPIO.output(RED_LED_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
     else:
         GPIO.output(GREEN_LED_PIN, GPIO.HIGH)  # Turn on green LED (empty)
         GPIO.output(RED_LED_PIN, GPIO.LOW)    # Turn off red LED
