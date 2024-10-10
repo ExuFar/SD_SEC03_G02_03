@@ -929,7 +929,6 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                 },
                                 text: 'Check slots',
                                 options: FFButtonOptions(
-                                  height: 38.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 15.0, 20.0, 15.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(

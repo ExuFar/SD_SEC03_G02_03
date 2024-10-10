@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/home_pages/nav_bar_admin/nav_bar_admin_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'homepage_admin_model.dart';
@@ -309,6 +308,66 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('customerList');
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    25.0, 0.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.people_alt_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bloodRed,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    25.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'View Customer',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -0.15),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12.0),
@@ -549,15 +608,27 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                GoRouter.of(context)
-                                                    .prepareAuthEvent();
-                                                await authManager.signOut();
-                                                GoRouter.of(context)
-                                                    .clearRedirectLocation();
-
-                                                context.goNamedAuth(
-                                                    'welcomePage',
-                                                    context.mounted);
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: const LogOutWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               },
                                               child: Text(
                                                 'Sign Out',
@@ -901,9 +972,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                             },
                             text: 'Check slots',
                             options: FFButtonOptions(
-                              height: 38.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 15.0, 20.0, 15.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).bloodRed,
@@ -922,18 +992,6 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 1.06),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 25.0),
-                      child: wrapWithModel(
-                        model: _model.navBarAdminModel,
-                        updateCallback: () => safeSetState(() {}),
-                        child: const NavBarAdminWidget(),
-                      ),
                     ),
                   ),
                 ],

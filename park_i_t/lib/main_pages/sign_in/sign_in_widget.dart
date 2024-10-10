@@ -639,7 +639,6 @@ class _SignInWidgetState extends State<SignInWidget>
                                   text: 'Sign In',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 40.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 15.0, 20.0, 15.0),
                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(
