@@ -66,3 +66,33 @@ try:
 finally:
     GPIO.cleanup()  # Clean up GPIO on exit
 
+
+
+
+
+'''
+I2C_ADDR = 0x27
+I2C_NUM_ROWS = 4
+I2C_NUM_COLS = 20
+lcd = I2cLcd(1, I2C_ADDR, I2C_NUM_ROWS, I2C_NUM_COLS)
+
+GPIO.setmode(GPIO.BCM)
+sensor_pin = 17
+GPIO.setup(sensor_pin, GPIO.IN)
+
+try:
+    while True:
+        if GPIO.input(sensor_pin):
+            lcd.clear()
+            lcd.putstr("\nNo Obstacle")
+        else:
+            lcd.clear()
+            lcd.putstr("\nObstacle Detected")
+        time.sleep(0.5)
+        
+except KeyboardInterrupt:
+    print("Program stopped")
+    
+finally:
+    GPIO.cleanup()
+'''
