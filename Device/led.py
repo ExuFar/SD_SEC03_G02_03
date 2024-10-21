@@ -2,97 +2,100 @@ from lcd_api import LcdApi
 from i2c_lcd import I2cLcd
 import RPi.GPIO as GPIO
 import time
-import smbus
+
 
 # GPIO Pin Definitions
-IR_SENSOR_SLOT_1 = 25  # IR sensor for parking slot 1
+IR_PARKING1_PIN = 23    # IR sensor for parking slot 1
+IR_PARKING2_PIN = 24    # IR sensor for parking slot 2
+IR_PARKING3_PIN = 25    # IR sensor for parking slot 3
 
-GREEN_LED_PIN = 23     # GPIO pin for green LED (indicates available spots)
-RED_LED_PIN = 24       # GPIO pin for red LED (indicates no available spots)
+# LEDs for parking slot 1
+GREEN_LED_PARKING1_PIN = 5       # Green LED for parking slot 1 (available)
+RED_LED_PARKING1_PIN = 6         # Red LED for parking slot 1 (occupied)
+
+# LEDs for parking slot 2
+GREEN_LED_PARKING2_PIN = 12      # Green LED for parking slot 2 (available)
+RED_LED_PARKING2_PIN = 16        # Red LED for parking slot 2 (occupied)
+
+# LEDs for parking slot 3
+GREEN_LED_PARKING3_PIN = 20      # Green LED for parking slot 3 (available)
+RED_LED_PARKING3_PIN = 21        # Red LED for parking slot 3 (occupied)
+
 
 # Total number of parking slots
-TOTAL_SLOTS = 2  # Modify based on the number of slots
+TOTAL_SLOTS = 3  # Modify based on the number of slots
 
 # LCD Definitions (assuming you use I2C to control the LCD)
 I2C_ADDR = 0x27          # I2C address of the LCD
 I2C_NUM_ROWS = 4         # Number of rows on the LCD
 I2C_NUM_COLS = 20        # Number of columns on the LCD
+lcd = I2cLcd(1, I2C_ADDR, I2C_NUM_COLS, I2C_NUM_ROWS)
 
 # Setup GPIO mode
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(IR_SENSOR_SLOT_1, GPIO.IN)
-GPIO.setup(GREEN_LED_PIN, GPIO.OUT)
-GPIO.setup(RED_LED_PIN, GPIO.OUT)
+GPIO.setup(IR_PARKING1_PIN, GPIO.IN)
+GPIO.setup(GREEN_LED_PARKING1_PIN, GPIO.OUT)
+GPIO.setup(RED_LED_PARKING1_PIN, GPIO.OUT)
+GPIO.setup(GREEN_LED_PARKING2_PIN, GPIO.OUT)
+GPIO.setup(RED_LED_PARKING2_PIN, GPIO.OUT)
+GPIO.setup(GREEN_LED_PARKING3_PIN, GPIO.OUT)
+GPIO.setup(RED_LED_PARKING3_PIN, GPIO.OUT)
 
-# Initialize the LCD
-i2c_bus = smbus.SMBus(1)  # Use I2C bus 1
-lcd = I2cLcd(i2c_bus, I2C_ADDR, I2C_NUM_ROWS, I2C_NUM_COLS)
 
-# Function to update LEDs and display available parking slots
-def update_leds_and_display(available_slots):
-    if available_slots > 0:
-        GPIO.output(GREEN_LED_PIN, GPIO.HIGH)  # Turn on green LED (available spots)
-        GPIO.output(RED_LED_PIN, GPIO.LOW)     # Turn off red LED
+# Function to indicate parking spot status
+def update_led1(occupied):
+    if occupied:
+        GPIO.output(GREEN_LED_PARKING1_PIN, GPIO.LOW)  # Turn off green LED
+        GPIO.output(RED_LED_PARKING1_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
     else:
-        GPIO.output(GREEN_LED_PIN, GPIO.LOW)  # Turn off green LED
-        GPIO.output(RED_LED_PIN, GPIO.HIGH)   # Turn on red LED (no spots available)
+        GPIO.output(GREEN_LED_PARKING1_PIN, GPIO.HIGH)  # Turn on green LED (empty)
+        GPIO.output(RED_LED_PARKING1_PIN, GPIO.LOW)    # Turn off red LED
 
-    lcd.clear()  # Clear the LCD screen
-    lcd.putstr(f"Available: {available_slots}/{TOTAL_SLOTS}")  # Display available slots
+def update_led2(occupied):
+    if occupied:
+        GPIO.output(GREEN_LED_PARKING2_PIN, GPIO.LOW)  # Turn off green LED
+        GPIO.output(RED_LED_PARKING2_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
+    else:
+        GPIO.output(GREEN_LED_PARKING2_PIN, GPIO.HIGH)  # Turn on green LED (empty)
+        GPIO.output(RED_LED_PARKING2_PIN, GPIO.LOW)    # Turn off red LED        
+
+def update_led3(occupied):
+    if occupied:
+        GPIO.output(GREEN_LED_PARKING3_PIN, GPIO.LOW)  # Turn off green LED
+        GPIO.output(RED_LED_PARKING3_PIN, GPIO.HIGH)   # Turn on red LED (occupied)
+    else:
+        GPIO.output(GREEN_LED_PARKING3_PIN, GPIO.HIGH)  # Turn on green LED (empty)
+        GPIO.output(RED_LED_PARKING3_PIN, GPIO.LOW)    # Turn off red LED
 
 
+# Function to count available parking slots
+def count_available_slots():
+    available_slots = 0
+    
+    # Check parking slot 1
+    if GPIO.input(IR_PARKING1_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    # Check parking slot 2
+    if GPIO.input(IR_PARKING2_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    # Check parking slot 3
+    if GPIO.input(IR_PARKING3_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    return available_slots
+
+
+# Function to update the available parking slots on the LCD
+def update_lcd(available_slots, total_slots=3):
+    lcd.clear()
+    lcd.putstr(f"Available: {available_slots}/{total_slots}")
 
 # Initialize the LCD display
 lcd.putstr("AVAILABLE PARKING")  # Initial message
 time.sleep(2)
 lcd.clear()
 
-try:
-    while True:
-        # Check the status of each parking slot
-        occupied_slots = 0
-        
-        if GPIO.input(IR_SENSOR_SLOT_1) == GPIO.LOW:  # Car detected in slot 1
-            occupied_slots += 1
-            
-        # Calculate available parking slots
-        available_slots = TOTAL_SLOTS - occupied_slots
-
-        # Update the LEDs and display the available slots on the LCD
-        update_leds_and_display(available_slots)
-
-        time.sleep(0.5)  # Short delay to avoid excessive CPU usage
-
-finally:
-    GPIO.cleanup()  # Clean up GPIO on exit
-
-
-
-
-
-'''
-I2C_ADDR = 0x27
-I2C_NUM_ROWS = 4
-I2C_NUM_COLS = 20
-lcd = I2cLcd(1, I2C_ADDR, I2C_NUM_ROWS, I2C_NUM_COLS)
-
-GPIO.setmode(GPIO.BCM)
-sensor_pin = 17
-GPIO.setup(sensor_pin, GPIO.IN)
-
-try:
-    while True:
-        if GPIO.input(sensor_pin):
-            lcd.clear()
-            lcd.putstr("\nNo Obstacle")
-        else:
-            lcd.clear()
-            lcd.putstr("\nObstacle Detected")
-        time.sleep(0.5)
-        
-except KeyboardInterrupt:
-    print("Program stopped")
-    
-finally:
-    GPIO.cleanup()
-'''
+available_slots = count_available_slots()
+update_lcd(available_slots)
