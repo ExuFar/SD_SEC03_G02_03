@@ -119,7 +119,7 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                     .override(
                                       fontFamily: 'Rubik',
                                       color: FlutterFlowTheme.of(context).white,
-                                      fontSize: 30.0,
+                                      fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
                               ),
