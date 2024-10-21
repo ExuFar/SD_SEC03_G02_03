@@ -14,5 +14,17 @@ service cloud.firestore {
       allow write: if request.auth.uid == document;
       allow delete: if request.auth.uid == document;
     }
+
+    match /users/{parent}/review/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/review/{document} {
+      allow read: if true;
+    }
+
   }
 }

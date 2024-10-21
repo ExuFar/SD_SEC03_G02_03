@@ -324,7 +324,15 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('GiveFeedback');
+                                  context.pushNamed(
+                                    'GiveFeedback',
+                                    queryParameters: {
+                                      'review': serializeParam(
+                                        currentUserReference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -1187,7 +1195,15 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   0.0, 15.0, 0.0, 15.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('GiveFeedback');
+                                  context.pushNamed(
+                                    'GiveFeedback',
+                                    queryParameters: {
+                                      'review': serializeParam(
+                                        currentUserReference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
                                 },
                                 text: 'Give feedback',
                                 options: FFButtonOptions(

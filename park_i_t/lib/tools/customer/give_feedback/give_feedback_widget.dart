@@ -1,17 +1,23 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'give_feedback_model.dart';
 export 'give_feedback_model.dart';
 
 class GiveFeedbackWidget extends StatefulWidget {
-  const GiveFeedbackWidget({super.key});
+  const GiveFeedbackWidget({
+    super.key,
+    required this.review,
+  });
+
+  final DocumentReference? review;
 
   @override
   State<GiveFeedbackWidget> createState() => _GiveFeedbackWidgetState();
@@ -180,30 +186,21 @@ class _GiveFeedbackWidgetState extends State<GiveFeedbackWidget>
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        const Icon(
-                                          Icons.star_border,
-                                          color: Color(0xFFFFD700),
-                                          size: 40.0,
-                                        ),
-                                        const Icon(
-                                          Icons.star_border,
-                                          color: Color(0xFFFFD700),
-                                          size: 40.0,
-                                        ),
-                                        const Icon(
-                                          Icons.star_border,
-                                          color: Color(0xFFFFD700),
-                                          size: 40.0,
-                                        ),
-                                        const Icon(
-                                          Icons.star_border,
-                                          color: Color(0xFFFFD700),
-                                          size: 40.0,
-                                        ),
-                                        const Icon(
-                                          Icons.star_border,
-                                          color: Color(0xFFFFD700),
-                                          size: 40.0,
+                                        RatingBar.builder(
+                                          onRatingUpdate: (newValue) =>
+                                              safeSetState(() => _model
+                                                  .ratingBarValue = newValue),
+                                          itemBuilder: (context, index) => const Icon(
+                                            Icons.star,
+                                            color: Color(0xFFF6CF66),
+                                          ),
+                                          direction: Axis.horizontal,
+                                          initialRating:
+                                              _model.ratingBarValue ??= 3.0,
+                                          unratedColor: const Color(0x9EF6CF66),
+                                          itemCount: 5,
+                                          itemSize: 35.0,
+                                          glowColor: const Color(0xFFF6CF66),
                                         ),
                                       ].divide(const SizedBox(width: 8.0)),
                                     ),
@@ -325,7 +322,7 @@ class _GiveFeedbackWidgetState extends State<GiveFeedbackWidget>
                                                 .bloodRed,
                                             letterSpacing: 0.0,
                                           ),
-                                      maxLines: 6,
+                                      maxLines: 10,
                                       minLines: 4,
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
@@ -335,101 +332,41 @@ class _GiveFeedbackWidgetState extends State<GiveFeedbackWidget>
                               ),
                             ),
                           ),
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 2.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 20.0, 20.0, 20.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'What aspects can we improve?',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Rubik',
-                                            color: const Color(0xFF6B0F0F),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    FlutterFlowChoiceChips(
-                                      options: const [
-                                        ChipData('Availability'),
-                                        ChipData('Pricing'),
-                                        ChipData('Location'),
-                                        ChipData('Safety'),
-                                        ChipData('Cleanliness'),
-                                        ChipData('App Experience')
-                                      ],
-                                      onChanged: (val) => safeSetState(() =>
-                                          _model.choiceChipsValue =
-                                              val?.firstOrNull),
-                                      selectedChipStyle: ChipStyle(
-                                        backgroundColor: const Color(0xFF6B0F0F),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lato',
-                                              color: Colors.white,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        iconColor: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        iconSize: 18.0,
-                                        elevation: 2.0,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      unselectedChipStyle: ChipStyle(
-                                        backgroundColor: const Color(0xFFF5F5F5),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Lato',
-                                              color: const Color(0xFF6B0F0F),
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        iconColor: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        iconSize: 18.0,
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      chipSpacing: 8.0,
-                                      rowSpacing: 8.0,
-                                      multiselect: false,
-                                      alignment: WrapAlignment.start,
-                                      controller:
-                                          _model.choiceChipsValueController ??=
-                                              FormFieldController<List<String>>(
-                                        [],
-                                      ),
-                                      wrapped: true,
-                                    ),
-                                  ].divide(const SizedBox(height: 16.0)),
-                                ),
-                              ),
-                            ),
-                          ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await ReviewRecord.createDoc(widget.review!)
+                                  .set(createReviewRecordData(
+                                userID: currentUserReference,
+                                review: (_model.textFieldFocusNode?.hasFocus ??
+                                        false)
+                                    .toString(),
+                                rating: _model.ratingBarValue?.round(),
+                                date: getCurrentTimestamp,
+                              ));
+
+                              await widget.review!.update({
+                                ...mapToFirestore(
+                                  {
+                                    'ratings': FieldValue.arrayUnion(
+                                        [_model.ratingBarValue?.round()]),
+                                  },
+                                ),
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Your Review is Publish',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                              Navigator.pop(context);
                             },
                             text: 'Submit Feedback',
                             options: FFButtonOptions(

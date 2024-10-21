@@ -138,7 +138,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'GiveFeedback',
           path: '/giveFeedback',
-          builder: (context, params) => const GiveFeedbackWidget(),
+          builder: (context, params) => GiveFeedbackWidget(
+            review: params.getParam(
+              'review',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'ViewFeedback',
