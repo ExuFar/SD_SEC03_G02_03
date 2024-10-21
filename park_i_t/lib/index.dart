@@ -17,7 +17,6 @@ export '/tools/contact_us/contact_us_widget.dart' show ContactUsWidget;
 export '/tools/about_us/about_us_widget.dart' show AboutUsWidget;
 export '/tools/admin/customer_list/customer_list_widget.dart'
     show CustomerListWidget;
-export '/tools/customer/give_feedback/give_feedback_widget.dart'
-    show GiveFeedbackWidget;
+export '/tools/give_feedback/give_feedback_widget.dart' show GiveFeedbackWidget;
 export '/tools/admin/view_feedback/view_feedback_widget.dart'
     show ViewFeedbackWidget;

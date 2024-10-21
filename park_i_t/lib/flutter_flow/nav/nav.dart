@@ -139,8 +139,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GiveFeedback',
           path: '/giveFeedback',
           builder: (context, params) => GiveFeedbackWidget(
-            review: params.getParam(
-              'review',
+            user: params.getParam(
+              'user',
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['users'],

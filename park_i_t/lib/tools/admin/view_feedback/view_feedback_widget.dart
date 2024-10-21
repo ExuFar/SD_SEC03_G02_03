@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,7 +5,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'view_feedback_model.dart';
 export 'view_feedback_model.dart';
 
@@ -149,56 +150,84 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
-                      child: StreamBuilder<List<ReviewRecord>>(
-                        stream: queryReviewRecord(
-                          parent: currentUserReference,
-                          queryBuilder: (reviewRecord) =>
-                              reviewRecord.orderBy('date'),
+                      child: PagedListView<DocumentSnapshot<Object?>?,
+                          ReviewRecord>.separated(
+                        pagingController: _model.setListViewController(
+                          ReviewRecord.collection().orderBy('date'),
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitRing(
-                                  color: FlutterFlowTheme.of(context).bloodRed,
-                                  size: 50.0,
-                                ),
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        reverse: false,
+                        scrollDirection: Axis.vertical,
+                        separatorBuilder: (_, __) => const SizedBox(height: 5.0),
+                        builderDelegate:
+                            PagedChildBuilderDelegate<ReviewRecord>(
+                          // Customize what your widget looks like when it's loading the first page.
+                          firstPageProgressIndicatorBuilder: (_) => Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitRing(
+                                color: FlutterFlowTheme.of(context).bloodRed,
+                                size: 50.0,
                               ),
-                            );
-                          }
-                          List<ReviewRecord> columnReviewRecordList =
-                              snapshot.data!;
+                            ),
+                          ),
+                          // Customize what your widget looks like when it's loading another page.
+                          newPageProgressIndicatorBuilder: (_) => Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitRing(
+                                color: FlutterFlowTheme.of(context).bloodRed,
+                                size: 50.0,
+                              ),
+                            ),
+                          ),
 
-                          return SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children:
-                                  List.generate(columnReviewRecordList.length,
-                                          (columnIndex) {
-                                final columnReviewRecord =
-                                    columnReviewRecordList[columnIndex];
-                                return Material(
-                                  color: Colors.transparent,
-                                  elevation: 2.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  child: Container(
-                                    width: MediaQuery.sizeOf(context).width *
-                                        0.967,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
-                                      child: Column(
+                          itemBuilder: (context, _, listViewIndex) {
+                            final listViewReviewRecord = _model
+                                .listViewPagingController!
+                                .itemList![listViewIndex];
+                            return Material(
+                              color: Colors.transparent,
+                              elevation: 2.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.967,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 20.0, 20.0, 20.0),
+                                  child: StreamBuilder<UsersRecord>(
+                                    stream: UsersRecord.getDocument(
+                                        listViewReviewRecord.userID!),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: SpinKitRing(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bloodRed,
+                                              size: 50.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+
+                                      final columnUsersRecord = snapshot.data!;
+
+                                      return Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Row(
@@ -206,34 +235,54 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              AuthUserStreamWidget(
-                                                builder: (context) => Text(
-                                                  currentUserDisplayName,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily: 'Rubik',
-                                                        color:
-                                                            const Color(0xFF6B0F0F),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
+                                              Text(
+                                                columnUsersRecord.displayName,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Rubik',
+                                                          color:
+                                                              const Color(0xFF6B0F0F),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
                                               ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  const Icon(
-                                                    Icons.star,
-                                                    color: Color(0xFFFFD700),
-                                                    size: 20.0,
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              RatingBarIndicator(
+                                                itemBuilder: (context, index) =>
+                                                    Icon(
+                                                  Icons.star_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .warning,
+                                                ),
+                                                direction: Axis.horizontal,
+                                                rating: listViewReviewRecord
+                                                    .rating
+                                                    .toDouble(),
+                                                unratedColor: const Color(0x88F9CF58),
+                                                itemCount: 5,
+                                                itemSize: 24.0,
+                                              ),
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  formatNumber(
+                                                    listViewReviewRecord.rating,
+                                                    formatType:
+                                                        FormatType.decimal,
+                                                    decimalType:
+                                                        DecimalType.automatic,
                                                   ),
-                                                  Text(
-                                                    '4.5',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                                  '0',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lato',
@@ -241,16 +290,47 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                               const Color(0xFF6B0F0F),
                                                           letterSpacing: 0.0,
                                                         ),
-                                                  ),
-                                                ].divide(const SizedBox(width: 4.0)),
                                               ),
-                                            ],
+                                              Flexible(
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 1.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      dateTimeFormat(
+                                                        "yMMMd",
+                                                        listViewReviewRecord
+                                                            .date!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Lato',
+                                                            color: const Color(
+                                                                0xFF6B0F0F),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ].divide(const SizedBox(width: 4.0)),
                                           ),
                                           Align(
                                             alignment:
                                                 const AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
-                                              columnReviewRecord.review,
+                                              listViewReviewRecord.review,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -265,16 +345,14 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                             ),
                                           ),
                                         ].divide(const SizedBox(height: 16.0)),
-                                      ),
-                                    ),
+                                      );
+                                    },
                                   ),
-                                );
-                              })
-                                      .divide(const SizedBox(height: 10.0))
-                                      .addToEnd(const SizedBox(height: 10.0)),
-                            ),
-                          );
-                        },
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),

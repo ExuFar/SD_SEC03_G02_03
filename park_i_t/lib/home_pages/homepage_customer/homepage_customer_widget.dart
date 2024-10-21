@@ -327,7 +327,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   context.pushNamed(
                                     'GiveFeedback',
                                     queryParameters: {
-                                      'review': serializeParam(
+                                      'user': serializeParam(
                                         currentUserReference,
                                         ParamType.DocumentReference,
                                       ),
@@ -1198,7 +1198,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   context.pushNamed(
                                     'GiveFeedback',
                                     queryParameters: {
-                                      'review': serializeParam(
+                                      'user': serializeParam(
                                         currentUserReference,
                                         ParamType.DocumentReference,
                                       ),
