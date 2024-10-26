@@ -20,3 +20,7 @@ export '/tools/admin/customer_list/customer_list_widget.dart'
 export '/tools/give_feedback/give_feedback_widget.dart' show GiveFeedbackWidget;
 export '/tools/admin/view_feedback/view_feedback_widget.dart'
     show ViewFeedbackWidget;
+export '/tools/view_avaliable_slots/view_avaliable_slots_widget.dart'
+    show ViewAvaliableSlotsWidget;
+export '/tools/admin/view_history/view_history_widget.dart'
+    show ViewHistoryWidget;

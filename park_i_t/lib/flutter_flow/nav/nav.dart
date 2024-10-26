@@ -151,6 +151,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ViewFeedback',
           path: '/viewFeedback',
           builder: (context, params) => const ViewFeedbackWidget(),
+        ),
+        FFRoute(
+          name: 'viewAvaliableSlots',
+          path: '/viewAvaliableSlots',
+          builder: (context, params) => const ViewAvaliableSlotsWidget(),
+        ),
+        FFRoute(
+          name: 'ViewHistory',
+          path: '/viewHistory',
+          builder: (context, params) => const ViewHistoryWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

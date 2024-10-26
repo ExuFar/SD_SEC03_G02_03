@@ -9,7 +9,7 @@ class HomepageCustomerModel extends FlutterFlowModel<HomepageCustomerWidget> {
   // State field(s) for PlacePicker widget.
   FFPlace placePickerValue = const FFPlace();
   // State field(s) for Carousel widget.
-  CarouselController? carouselController;
+  CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
 
   @override
