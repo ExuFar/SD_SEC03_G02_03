@@ -19,12 +19,21 @@ GREEN_LED_PARKING1_PIN = 5       # Green LED for parking slot 1 (available)
 RED_LED_PARKING1_PIN = 6         # Red LED for parking slot 1 (occupied)
 
 # LEDs for parking slot 2
-GREEN_LED_PARKING2_PIN = 12      # Green LED for parking slot 2 (available)
-RED_LED_PARKING2_PIN = 16        # Red LED for parking slot 2 (occupied)
+GREEN_LED_PARKING2_PIN = 13      # Green LED for parking slot 2 (available)
+RED_LED_PARKING2_PIN = 19        # Red LED for parking slot 2 (occupied)
 
 # LEDs for parking slot 3
-GREEN_LED_PARKING3_PIN = 20      # Green LED for parking slot 3 (available)
+GREEN_LED_PARKING3_PIN = 26      # Green LED for parking slot 3 (available)
 RED_LED_PARKING3_PIN = 21        # Red LED for parking slot 3 (occupied)
+
+# Total number of parking slots
+TOTAL_SLOTS = 3  # Modify based on the number of slots
+
+# LCD Definitions (assuming you use I2C to control the LCD)
+I2C_ADDR = 0x27          # I2C address of the LCD
+I2C_NUM_ROWS = 20         # Number of rows on the LCD
+I2C_NUM_COLS = 4        # Number of columns on the LCD
+lcd = I2cLcd(1, I2C_ADDR, I2C_NUM_COLS, I2C_NUM_ROWS)
 
 
 # Setup GPIO mode
@@ -73,6 +82,31 @@ def open_exit_gate():
 # Function to close the exit gate (servo 2)
 def close_exit_gate():
     pwm_exit.ChangeDutyCycle(9.5)  # Move exit servo to 90 degrees (closed)
+    
+    
+# Function to count available parking slots
+def count_available_slots():
+    available_slots = 0
+    
+    # Check parking slot 1
+    if GPIO.input(IR_PARKING1_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    # Check parking slot 2
+    if GPIO.input(IR_PARKING2_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    # Check parking slot 3
+    if GPIO.input(IR_PARKING3_PIN) == GPIO.HIGH:
+        available_slots += 1
+    
+    return available_slots
+
+
+# Function to update the available parking slots on the LCD
+def update_lcd(available_slots, total_slots=3):
+    lcd.clear()
+    lcd.putstr(f"Available: {available_slots}/{total_slots}")
     
 
 # Function to indicate parking spot status
