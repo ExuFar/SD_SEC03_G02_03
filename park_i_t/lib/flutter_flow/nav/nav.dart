@@ -161,6 +161,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ViewHistory',
           path: '/viewHistory',
           builder: (context, params) => const ViewHistoryWidget(),
+        ),
+        FFRoute(
+          name: 'viewProfile',
+          path: '/viewProfile',
+          builder: (context, params) => const ViewProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

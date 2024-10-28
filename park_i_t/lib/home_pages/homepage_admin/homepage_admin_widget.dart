@@ -176,7 +176,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('editProfileNew');
+                                  context.pushNamed('viewProfile');
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -204,7 +204,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   25.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Edit Profile',
+                                            'Profile',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .override(

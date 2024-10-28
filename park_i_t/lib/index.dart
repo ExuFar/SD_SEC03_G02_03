@@ -17,10 +17,13 @@ export '/tools/contact_us/contact_us_widget.dart' show ContactUsWidget;
 export '/tools/about_us/about_us_widget.dart' show AboutUsWidget;
 export '/tools/admin/customer_list/customer_list_widget.dart'
     show CustomerListWidget;
-export '/tools/give_feedback/give_feedback_widget.dart' show GiveFeedbackWidget;
+export '/tools/customer/give_feedback/give_feedback_widget.dart'
+    show GiveFeedbackWidget;
 export '/tools/admin/view_feedback/view_feedback_widget.dart'
     show ViewFeedbackWidget;
 export '/tools/view_avaliable_slots/view_avaliable_slots_widget.dart'
     show ViewAvaliableSlotsWidget;
 export '/tools/admin/view_history/view_history_widget.dart'
     show ViewHistoryWidget;
+export '/edit_profile/view_profile/view_profile_widget.dart'
+    show ViewProfileWidget;

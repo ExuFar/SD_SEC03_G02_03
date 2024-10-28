@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'view_history_model.dart';
 export 'view_history_model.dart';
 
@@ -112,7 +111,7 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                           Expanded(
                             child: Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: GradientText(
+                              child: Text(
                                 'History',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
@@ -123,12 +122,6 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                       fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
-                                colors: [
-                                  FlutterFlowTheme.of(context).primary,
-                                  FlutterFlowTheme.of(context).secondary
-                                ],
-                                gradientDirection: GradientDirection.ltr,
-                                gradientType: GradientType.linear,
                               ),
                             ),
                           ),

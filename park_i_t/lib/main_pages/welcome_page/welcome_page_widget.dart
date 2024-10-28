@@ -193,7 +193,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                           children: [
                             Flexible(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.6, 1.4),
+                                alignment: const AlignmentDirectional(0.6, 1.8),
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: Text(

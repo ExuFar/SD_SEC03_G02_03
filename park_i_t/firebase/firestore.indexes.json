@@ -3,6 +3,16 @@
   "fieldOverrides": [
     {
       "collectionGroup": "review",
+      "fieldPath": "rating",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "review",
       "fieldPath": "date",
       "indexes": [
         {

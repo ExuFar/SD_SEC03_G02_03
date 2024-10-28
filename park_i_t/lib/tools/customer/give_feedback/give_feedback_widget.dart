@@ -8,16 +8,17 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'give_feedback_model.dart';
 export 'give_feedback_model.dart';
 
 class GiveFeedbackWidget extends StatefulWidget {
   const GiveFeedbackWidget({
     super.key,
-    required this.review,
+    required this.user,
   });
 
-  final DocumentReference? review;
+  final DocumentReference? user;
 
   @override
   State<GiveFeedbackWidget> createState() => _GiveFeedbackWidgetState();
@@ -75,20 +76,41 @@ class _GiveFeedbackWidgetState extends State<GiveFeedbackWidget>
             children: [
               Opacity(
                 opacity: 0.2,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).bloodRed,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/background.png',
-                      width: double.infinity,
-                      height: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['imageOnPageLoadAnimation']!),
+                child: StreamBuilder<UsersRecord>(
+                  stream: UsersRecord.getDocument(widget.user!),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: SpinKitRing(
+                            color: FlutterFlowTheme.of(context).bloodRed,
+                            size: 50.0,
+                          ),
+                        ),
+                      );
+                    }
+
+                    final containerUsersRecord = snapshot.data!;
+
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).bloodRed,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/background.png',
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation']!),
+                    );
+                  },
                 ),
               ),
               Column(
@@ -334,17 +356,15 @@ class _GiveFeedbackWidgetState extends State<GiveFeedbackWidget>
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              await ReviewRecord.createDoc(widget.review!)
+                              await ReviewRecord.createDoc(widget.user!)
                                   .set(createReviewRecordData(
                                 userID: currentUserReference,
-                                review: (_model.textFieldFocusNode?.hasFocus ??
-                                        false)
-                                    .toString(),
+                                review: _model.textController.text,
                                 rating: _model.ratingBarValue?.round(),
                                 date: getCurrentTimestamp,
                               ));
 
-                              await widget.review!.update({
+                              await widget.user!.update({
                                 ...mapToFirestore(
                                   {
                                     'ratings': FieldValue.arrayUnion(
