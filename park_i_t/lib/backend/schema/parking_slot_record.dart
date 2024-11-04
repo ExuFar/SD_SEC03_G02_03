@@ -26,9 +26,21 @@ class ParkingSlotRecord extends FirestoreRecord {
   List<bool> get slotStatus => _slotStatus ?? const [];
   bool hasSlotStatus() => _slotStatus != null;
 
+  // "total_slot" field.
+  DocumentReference? _totalSlot;
+  DocumentReference? get totalSlot => _totalSlot;
+  bool hasTotalSlot() => _totalSlot != null;
+
+  // "totalslot" field.
+  int? _totalslot;
+  int get totalslot => _totalslot ?? 0;
+  bool hasTotalslot() => _totalslot != null;
+
   void _initializeFields() {
     _slotNumber = getDataList(snapshotData['SlotNumber']);
     _slotStatus = getDataList(snapshotData['SlotStatus']);
+    _totalSlot = snapshotData['total_slot'] as DocumentReference?;
+    _totalslot = castToType<int>(snapshotData['totalslot']);
   }
 
   static CollectionReference get collection =>
@@ -65,9 +77,15 @@ class ParkingSlotRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createParkingSlotRecordData() {
+Map<String, dynamic> createParkingSlotRecordData({
+  DocumentReference? totalSlot,
+  int? totalslot,
+}) {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{}.withoutNulls,
+    <String, dynamic>{
+      'total_slot': totalSlot,
+      'totalslot': totalslot,
+    }.withoutNulls,
   );
 
   return firestoreData;
@@ -80,12 +98,14 @@ class ParkingSlotRecordDocumentEquality implements Equality<ParkingSlotRecord> {
   bool equals(ParkingSlotRecord? e1, ParkingSlotRecord? e2) {
     const listEquality = ListEquality();
     return listEquality.equals(e1?.slotNumber, e2?.slotNumber) &&
-        listEquality.equals(e1?.slotStatus, e2?.slotStatus);
+        listEquality.equals(e1?.slotStatus, e2?.slotStatus) &&
+        e1?.totalSlot == e2?.totalSlot &&
+        e1?.totalslot == e2?.totalslot;
   }
 
   @override
-  int hash(ParkingSlotRecord? e) =>
-      const ListEquality().hash([e?.slotNumber, e?.slotStatus]);
+  int hash(ParkingSlotRecord? e) => const ListEquality()
+      .hash([e?.slotNumber, e?.slotStatus, e?.totalSlot, e?.totalslot]);
 
   @override
   bool isValidKey(Object? o) => o is ParkingSlotRecord;

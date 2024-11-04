@@ -37,6 +37,7 @@ dependencies:
   cloud_firestore_web: 4.3.2
   collection: 1.18.0
   csslib: 0.17.3
+  equatable: 2.0.5
   file_picker: 8.1.2
   firebase_auth: 5.3.1
   firebase_auth_platform_interface: 7.4.7
@@ -69,6 +70,7 @@ dependencies:
   google_sign_in_platform_interface: 2.4.5
   google_sign_in_web: 0.12.4+2
   html: 0.15.4
+  http: 1.2.2
   image_picker: 1.1.2
   image_picker_android: 0.8.12+13
   image_picker_for_web: 3.0.5
