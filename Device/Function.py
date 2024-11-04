@@ -8,16 +8,18 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 # Initialize Firebase
-cred = credentials.Certificate("D:/farihin/Desktop/SD/serviceAccountKey.json")
+cred = credentials.Certificate("/home/farihin/Desktop/SD/serviceAccountKey.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://park-i-t-c4s9f4-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
 
 
 # GPIO Pin Definitions
-IR_PARKING1_PIN = 23    # IR sensor for parking slot 1
-IR_PARKING2_PIN = 24    # IR sensor for parking slot 2
-IR_PARKING3_PIN = 25    # IR sensor for parking slot 3
+#IR_PARKING1_PIN = 23    # IR sensor for parking slot 1
+#IR_PARKING2_PIN = 24    # IR sensor for parking slot 2
+#IR_PARKING3_PIN = 25    # IR sensor for parking slot 3
+
+
 IR_ENTRY_PIN = 27       # IR sensor for car entry
 IR_EXIT_PIN = 22        # IR sensor for car exit
 SERVO_ENTRY_PIN = 17    # GPIO pin for entry servo motor
@@ -49,9 +51,13 @@ lcd = I2cLcd(1, I2C_ADDR, I2C_NUM_COLS, I2C_NUM_ROWS)
 # Setup GPIO mode
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(IR_PARKING1_PIN, GPIO.IN)
-GPIO.setup(IR_PARKING2_PIN, GPIO.IN)
-GPIO.setup(IR_PARKING3_PIN, GPIO.IN)
+#GPIO.setup(IR_PARKING1_PIN, GPIO.IN)
+#GPIO.setup(IR_PARKING2_PIN, GPIO.IN)
+#GPIO.setup(IR_PARKING3_PIN, GPIO.IN)
+sensors = {23: 'IR_PARKING1_PIN', 24: 'IR_PARKING2_PIN', 25: 'IR_PARKING3_PIN'}
+for sensor in sensors:
+    GPIO.setup(sensor, GPIO.IN)
+
 
 GPIO.setup(SERVO_ENTRY_PIN, GPIO.OUT)
 GPIO.setup(SERVO_EXIT_PIN, GPIO.OUT)
@@ -95,13 +101,27 @@ def close_exit_gate():
     pwm_exit.ChangeDutyCycle(9.5)  # Move exit servo to 90 degrees (closed)
     
     
-# Function to count available parking slots
+# Function to count available parking slots and set occupied or available
+ref = db.reference('parking_slots')
+
 def count_available_slots():
     available_slots = 0
     
-    # Check parking slot 1
+    
+    for sensor, slot in sensors.items():
+        if GPIO.input(sensor) == GPIO.HIGH:
+            ref.child(slot).update({"status": "occupied"})
+        else:
+            ref.child(slot).update({"status": "available"})
+            available_slots += 1
+            
+            
+    """# Check parking slot 1
     if GPIO.input(IR_PARKING1_PIN) == GPIO.HIGH:
         available_slots += 1
+        ref.child(slot).update({"status": "occupied"})
+    else:
+        ref.child(slot).update({"status": "available"})
     
     # Check parking slot 2
     if GPIO.input(IR_PARKING2_PIN) == GPIO.HIGH:
@@ -109,7 +129,7 @@ def count_available_slots():
     
     # Check parking slot 3
     if GPIO.input(IR_PARKING3_PIN) == GPIO.HIGH:
-        available_slots += 1
+        available_slots += 1"""
     
     return available_slots
 
@@ -117,7 +137,7 @@ def count_available_slots():
 # Function to update the available parking slots on the LCD
 def update_lcd(available_slots, total_slots=3):
     lcd.clear()
-    lcd.putstr(f"Available: {available_slots}/{total_slots}")
+    lcd.putstr(f"  Available Slot: \n  {available_slots}/{total_slots}")
     
 
 # Function to indicate parking spot status
@@ -145,6 +165,8 @@ def update_led3(occupied):
         GPIO.output(GREEN_LED_PARKING3_PIN, GPIO.HIGH)  # Turn on green LED (empty)
         GPIO.output(RED_LED_PARKING3_PIN, GPIO.LOW)    # Turn off red LED
 
+
+# Main
 try:
     while True:
         # Detect car entry
