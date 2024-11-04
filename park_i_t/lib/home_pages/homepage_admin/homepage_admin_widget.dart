@@ -939,7 +939,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                                     getJsonField(
                                                       textGetParkingSlotResponse
                                                           .jsonBody,
-                                                      r'''$.Total_Slots''',
+                                                      r'''$.Total_Slot''',
                                                     ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
