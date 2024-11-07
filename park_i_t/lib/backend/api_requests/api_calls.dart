@@ -32,6 +32,38 @@ class GetParkingSlotCall {
       ));
 }
 
+class ParkingSlotAvailableCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'parkingSlotAvailable',
+      apiUrl:
+          'https://park-i-t-c4s9f4-default-rtdb.asia-southeast1.firebasedatabase.app/parking_slots.json?auth= AIzaSyARF4HLPX6nQdf2MilHnABuYQP0bY7SUwM',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? slot1(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.slot_1.status''',
+      ));
+  static String? slot2(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.slot_2.status''',
+      ));
+  static String? slot3(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.slot_3.status''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

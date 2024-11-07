@@ -43,6 +43,63 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
           ),
         ],
       ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -86,8 +143,8 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).bloodRed,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF0F1D6B),
                     ),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -128,7 +185,8 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                         ],
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation1']!),
                   Align(
                     alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
@@ -139,10 +197,11 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).labelLarge.override(
                               fontFamily: 'Lato',
-                              color: const Color(0xFFA91919),
+                              color: const Color(0xFF0F1D6B),
                               letterSpacing: 0.0,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ),
                   ),
                   Flexible(
@@ -150,9 +209,9 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
                       child: PagedListView<DocumentSnapshot<Object?>?,
-                          ReviewRecord>.separated(
+                          ParkingFeesRecord>.separated(
                         pagingController: _model.setListViewController(
-                          ReviewRecord.collection().orderBy('date'),
+                          ParkingFeesRecord.collection(),
                         ),
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -160,7 +219,7 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                         scrollDirection: Axis.vertical,
                         separatorBuilder: (_, __) => const SizedBox(height: 5.0),
                         builderDelegate:
-                            PagedChildBuilderDelegate<ReviewRecord>(
+                            PagedChildBuilderDelegate<ParkingFeesRecord>(
                           // Customize what your widget looks like when it's loading the first page.
                           firstPageProgressIndicatorBuilder: (_) => Center(
                             child: SizedBox(
@@ -185,7 +244,7 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                           ),
 
                           itemBuilder: (context, _, listViewIndex) {
-                            final listViewReviewRecord = _model
+                            final listViewParkingFeesRecord = _model
                                 .listViewPagingController!
                                 .itemList![listViewIndex];
                             return Material(
@@ -206,7 +265,7 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                       20.0, 20.0, 20.0, 20.0),
                                   child: StreamBuilder<UsersRecord>(
                                     stream: UsersRecord.getDocument(
-                                        listViewReviewRecord.userID!),
+                                        listViewParkingFeesRecord.userID!),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
                                       if (!snapshot.hasData) {
@@ -242,50 +301,14 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                                         .override(
                                                           fontFamily: 'Rubik',
                                                           color:
-                                                              const Color(0xFF6B0F0F),
+                                                              const Color(0xFF0F1D6B),
                                                           fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
                                               ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Text(
-                                                  'slotName',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Lato',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
                                             ],
-                                          ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
-                                            child: Text(
-                                              'date',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Lato',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bloodRed,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
                                           ),
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -296,16 +319,14 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                                 alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
-                                                  'timeIn',
+                                                  'Time In',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Lato',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bloodRed,
+                                                            const Color(0xFF0F1D6B),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -314,16 +335,63 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                                 alignment: const AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
-                                                  'timeOut',
+                                                  valueOrDefault<String>(
+                                                    listViewParkingFeesRecord
+                                                        .timeIn
+                                                        ?.toString(),
+                                                    'TimeIn',
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Lato',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bloodRed,
+                                                            const Color(0xFF0F1D6B),
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Text(
+                                                  'Time Out',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color:
+                                                            const Color(0xFF0F1D6B),
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    listViewParkingFeesRecord
+                                                        .timeOut
+                                                        ?.toString(),
+                                                    'TimeOut',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color:
+                                                            const Color(0xFF0F1D6B),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -334,16 +402,19 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                             alignment:
                                                 const AlignmentDirectional(1.0, 0.0),
                                             child: Text(
-                                              'fess RM __',
+                                              'RM ${valueOrDefault<String>(
+                                                listViewParkingFeesRecord
+                                                    .totalFees
+                                                    .toString(),
+                                                '0',
+                                              )}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Lato',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bloodRed,
+                                                            const Color(0xFF0F1D6B),
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -354,7 +425,8 @@ class _ViewHistoryWidgetState extends State<ViewHistoryWidget>
                                   ),
                                 ),
                               ),
-                            );
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation2']!);
                           },
                         ),
                       ),

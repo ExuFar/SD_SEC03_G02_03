@@ -57,6 +57,113 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          BlurEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -190,14 +297,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Padding(
+                                        const Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   25.0, 0.0, 0.0, 0.0),
                                           child: Icon(
                                             Icons.person,
-                                            color: FlutterFlowTheme.of(context)
-                                                .bloodRed,
+                                            color: Color(0xFF0F1D6B),
                                             size: 24.0,
                                           ),
                                         ),
@@ -255,15 +361,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
+                                          const Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.lock_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bloodRed,
+                                              color: Color(0xFF0F1D6B),
                                               size: 24.0,
                                             ),
                                           ),
@@ -328,15 +432,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
+                                          const Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.people_alt_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bloodRed,
+                                              color: Color(0xFF0F1D6B),
                                               size: 24.0,
                                             ),
                                           ),
@@ -377,37 +479,47 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  25.0, 0.0, 0.0, 0.0),
-                                          child: Icon(
-                                            Icons.history_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .bloodRed,
-                                            size: 24.0,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('ViewHistory');
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          const Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    25.0, 0.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.history_rounded,
+                                              color: Color(0xFF0F1D6B),
+                                              size: 24.0,
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  25.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'History',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Lato',
-                                                  color: Colors.black,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    25.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Parking Fees History',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -436,15 +548,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
+                                          const Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.feedback_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bloodRed,
+                                              color: Color(0xFF0F1D6B),
                                               size: 24.0,
                                             ),
                                           ),
@@ -496,15 +606,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
+                                          const Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.info_outline_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bloodRed,
+                                              color: Color(0xFF0F1D6B),
                                               size: 24.0,
                                             ),
                                           ),
@@ -587,15 +695,13 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
+                                          const Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     25.0, 0.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.logout_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bloodRed,
+                                              color: Color(0xFF0F1D6B),
                                               size: 24.0,
                                             ),
                                           ),
@@ -775,7 +881,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                         ),
                                       ),
                                     ],
-                                  ),
+                                  ).animateOnPageLoad(
+                                      animationsMap['rowOnPageLoadAnimation']!),
                                   Opacity(
                                     opacity: 0.9,
                                     child: SizedBox(
@@ -785,7 +892,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                         color:
                                             FlutterFlowTheme.of(context).white,
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'dividerOnPageLoadAnimation']!),
                                   ),
                                   Align(
                                     alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -801,7 +909,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                                 fontFamily: 'Lato',
                                                 letterSpacing: 0.0,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation1']!),
                                       ),
                                     ),
                                   ),
@@ -817,7 +926,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                             fontSize: 45.0,
                                             letterSpacing: 0.0,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation2']!),
                                   ),
                                 ],
                               ),
@@ -877,7 +987,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                   ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Align(
@@ -939,7 +1049,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                                     getJsonField(
                                                       textGetParkingSlotResponse
                                                           .jsonBody,
-                                                      r'''$.Total_Slot''',
+                                                      r'''$.Total_Slots''',
                                                     ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1012,14 +1122,15 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                 ],
                               ),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               25.0, 25.0, 25.0, 20.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('viewAvaliableSlots');
                             },
                             text: 'Check slots',
                             options: FFButtonOptions(
@@ -1027,7 +1138,7 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                                   20.0, 0.0, 20.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).bloodRed,
+                              color: const Color(0xFF0F1D6B),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -1040,7 +1151,8 @@ class _HomepageAdminWidgetState extends State<HomepageAdminWidget>
                               elevation: 0.0,
                               borderRadius: BorderRadius.circular(24.0),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation']!),
                         ),
                       ],
                     ),

@@ -42,6 +42,82 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -86,8 +162,8 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).bloodRed,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF0F1D6B),
                     ),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -132,7 +208,8 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   Flexible(
@@ -154,11 +231,11 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                                     .labelLarge
                                     .override(
                                       fontFamily: 'Lato',
-                                      color: FlutterFlowTheme.of(context)
-                                          .cornellRed,
+                                      color: const Color(0xFF0F1D6B),
                                       letterSpacing: 0.0,
                                     ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
                             ),
                           ),
                           Padding(
@@ -206,7 +283,8 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                                   ],
                                 ),
                               ),
-                            ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation1']!),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
@@ -361,7 +439,7 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                                                                   fontFamily:
                                                                       'Lato',
                                                                   color: const Color(
-                                                                      0xFF881919),
+                                                                      0xFF0F1D6B),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -385,7 +463,7 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                                                                   fontFamily:
                                                                       'Lato',
                                                                   color: const Color(
-                                                                      0xFFB41919),
+                                                                      0xFF0F1D6B),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -398,7 +476,8 @@ class _CustomerListWidgetState extends State<CustomerListWidget>
                                               ],
                                             ),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation2']!),
                                       );
                                     })
                                         .divide(const SizedBox(height: 5.0))

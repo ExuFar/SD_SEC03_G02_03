@@ -1,4 +1,4 @@
-import '/backend/backend.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -43,6 +43,44 @@ class _ViewAvaliableSlotsWidgetState extends State<ViewAvaliableSlotsWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -66,51 +104,20 @@ class _ViewAvaliableSlotsWidgetState extends State<ViewAvaliableSlotsWidget>
             children: [
               Opacity(
                 opacity: 0.2,
-                child: StreamBuilder<List<ParkingSlotRecord>>(
-                  stream: queryParkingSlotRecord(
-                    singleRecord: true,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).bloodRed,
                   ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: SpinKitRing(
-                            color: FlutterFlowTheme.of(context).bloodRed,
-                            size: 50.0,
-                          ),
-                        ),
-                      );
-                    }
-                    List<ParkingSlotRecord> containerParkingSlotRecordList =
-                        snapshot.data!;
-                    // Return an empty Container when the item does not exist.
-                    if (snapshot.data!.isEmpty) {
-                      return Container();
-                    }
-                    final containerParkingSlotRecord =
-                        containerParkingSlotRecordList.isNotEmpty
-                            ? containerParkingSlotRecordList.first
-                            : null;
-
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).bloodRed,
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/background.png',
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation']!),
-                    );
-                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/background.png',
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
                 ),
               ),
               Column(
@@ -142,14 +149,14 @@ class _ViewAvaliableSlotsWidgetState extends State<ViewAvaliableSlotsWidget>
                                   context.safePop();
                                 },
                               ),
-                              Expanded(
+                              Flexible(
                                 child: Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 28.0, 0.0),
                                     child: Text(
-                                      'Available parking slots',
+                                      'Available \nparking slot',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge
@@ -159,133 +166,425 @@ class _ViewAvaliableSlotsWidgetState extends State<ViewAvaliableSlotsWidget>
                                                 .white,
                                             fontSize: 25.0,
                                             letterSpacing: 0.0,
+                                            lineHeight: 1.4,
                                           ),
                                     ),
                                   ),
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation']!),
                         ),
                       ),
-                      StreamBuilder<List<ParkingSlotRecord>>(
-                        stream: queryParkingSlotRecord(),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitRing(
-                                  color: FlutterFlowTheme.of(context).bloodRed,
-                                  size: 50.0,
-                                ),
-                              ),
-                            );
-                          }
-                          List<ParkingSlotRecord>
-                              listViewParkingSlotRecordList = snapshot.data!;
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: ParkingSlotAvailableCall.call(),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitRing(
+                                      color:
+                                          FlutterFlowTheme.of(context).bloodRed,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              final containerParkingSlotAvailableResponse =
+                                  snapshot.data!;
 
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewParkingSlotRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewParkingSlotRecord =
-                                  listViewParkingSlotRecordList[listViewIndex];
-                              return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Material(
-                                      color: Colors.transparent,
-                                      elevation: 2.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
-                                      ),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.81,
-                                        height: 180.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                        ),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Flexible(
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: Text(
-                                                      'Slot Number',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelLarge
-                                                          .override(
-                                                            fontFamily: 'Lato',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bloodRed,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.81,
+                                  height: 180.0,
+                                  decoration: BoxDecoration(
+                                    color: ParkingSlotAvailableCall.slot1(
+                                              containerParkingSlotAvailableResponse
+                                                  .jsonBody,
+                                            ) ==
+                                            'Available'
+                                        ? const Color(0xFF26C320)
+                                        : const Color(0xFFEE1616),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future:
+                                                ParkingSlotAvailableCall.call(),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitRing(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bloodRed,
+                                                      size: 50.0,
                                                     ),
                                                   ),
+                                                );
+                                              }
+                                              final textParkingSlotAvailableResponse =
+                                                  snapshot.data!;
+
+                                              return Text(
+                                                valueOrDefault<String>(
+                                                  ParkingSlotAvailableCall
+                                                      .slot1(
+                                                    textParkingSlotAvailableResponse
+                                                        .jsonBody,
+                                                  ),
+                                                  'Maintenance',
                                                 ),
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 1.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 10.0, 0.0),
-                                                  child: Text(
-                                                    'statut',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .labelLarge
                                                         .override(
                                                           fontFamily: 'Lato',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bloodRed,
+                                                              .white,
+                                                          fontSize: 30.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w900,
                                                         ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: Text(
+                                            'Slot : 1',
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Lato',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .white,
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w900,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: ParkingSlotAvailableCall.call(),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitRing(
+                                      color:
+                                          FlutterFlowTheme.of(context).bloodRed,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              final containerParkingSlotAvailableResponse =
+                                  snapshot.data!;
+
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.81,
+                                  height: 180.0,
+                                  decoration: BoxDecoration(
+                                    color: ParkingSlotAvailableCall.slot2(
+                                              containerParkingSlotAvailableResponse
+                                                  .jsonBody,
+                                            ) ==
+                                            'Available'
+                                        ? const Color(0xFF22D12E)
+                                        : const Color(0xFFF31D1D),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: FutureBuilder<ApiCallResponse>(
+                                            future:
+                                                ParkingSlotAvailableCall.call(),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitRing(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bloodRed,
+                                                      size: 50.0,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              final textParkingSlotAvailableResponse =
+                                                  snapshot.data!;
+
+                                              return Text(
+                                                valueOrDefault<String>(
+                                                  ParkingSlotAvailableCall
+                                                      .slot2(
+                                                    textParkingSlotAvailableResponse
+                                                        .jsonBody,
+                                                  ),
+                                                  'Maintenance',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Lato',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .white,
+                                                          fontSize: 30.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w900,
+                                                        ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 10.0, 0.0),
+                                          child: Text(
+                                            'Slot : 2',
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Lato',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .white,
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w900,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        FutureBuilder<ApiCallResponse>(
+                          future: ParkingSlotAvailableCall.call(),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: SpinKitRing(
+                                    color:
+                                        FlutterFlowTheme.of(context).bloodRed,
+                                    size: 50.0,
+                                  ),
+                                ),
+                              );
+                            }
+                            final containerParkingSlotAvailableResponse =
+                                snapshot.data!;
+
+                            return Material(
+                              color: Colors.transparent,
+                              elevation: 2.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.81,
+                                height: 180.0,
+                                decoration: BoxDecoration(
+                                  color: ParkingSlotAvailableCall.slot3(
+                                            containerParkingSlotAvailableResponse
+                                                .jsonBody,
+                                          ) ==
+                                          'Available'
+                                      ? const Color(0xFF25E01E)
+                                      : const Color(0xFFB12020),
+                                  borderRadius: BorderRadius.circular(16.0),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(0.0, -1.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Text(
+                                          'Slot : 3',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge
+                                              .override(
+                                                fontFamily: 'Lato',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .white,
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w900,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: FutureBuilder<ApiCallResponse>(
+                                          future:
+                                              ParkingSlotAvailableCall.call(),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitRing(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bloodRed,
+                                                    size: 50.0,
                                                   ),
                                                 ),
+                                              );
+                                            }
+                                            final textParkingSlotAvailableResponse =
+                                                snapshot.data!;
+
+                                            return Text(
+                                              valueOrDefault<String>(
+                                                ParkingSlotAvailableCall.slot3(
+                                                  textParkingSlotAvailableResponse
+                                                      .jsonBody,
+                                                ),
+                                                'Maintenance',
                                               ),
-                                            ],
-                                          ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelLarge
+                                                  .override(
+                                                    fontFamily: 'Lato',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .white,
+                                                    fontSize: 30.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w900,
+                                                  ),
+                                            );
+                                          },
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
+                              ),
+                            );
+                          },
+                        ),
+                      ].addToEnd(const SizedBox(height: 50.0)),
+                    ).animateOnPageLoad(
+                        animationsMap['columnOnPageLoadAnimation']!),
                   ),
                 ],
               ),

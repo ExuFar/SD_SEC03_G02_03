@@ -56,6 +56,25 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -113,25 +132,6 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
           ),
         ],
       ),
-      'rowOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(-40.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.3,
-            end: 1.0,
-          ),
-        ],
-      ),
       'rowOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -171,6 +171,25 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
         ],
       ),
       'rowOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -271,7 +290,8 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
                           ),
                         ),
                       ],
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['rowOnPageLoadAnimation1']!),
                   ),
                   Padding(
                     padding:
@@ -535,7 +555,7 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
                                   ),
                                 ],
                               ).animateOnPageLoad(
-                                  animationsMap['rowOnPageLoadAnimation1']!),
+                                  animationsMap['rowOnPageLoadAnimation2']!),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -666,7 +686,7 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
                                   ),
                                 ],
                               ).animateOnPageLoad(
-                                  animationsMap['rowOnPageLoadAnimation2']!),
+                                  animationsMap['rowOnPageLoadAnimation3']!),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -791,7 +811,7 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
                                   ),
                                 ],
                               ).animateOnPageLoad(
-                                  animationsMap['rowOnPageLoadAnimation3']!),
+                                  animationsMap['rowOnPageLoadAnimation4']!),
                             ),
                             Align(
                               alignment: const AlignmentDirectional(0.0, -0.1),
@@ -853,7 +873,7 @@ class _EditProfileNewWidgetState extends State<EditProfileNewWidget>
                                   ),
                                 ],
                               ).animateOnPageLoad(
-                                  animationsMap['rowOnPageLoadAnimation4']!),
+                                  animationsMap['rowOnPageLoadAnimation5']!),
                             ),
                           ],
                         ),

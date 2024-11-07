@@ -9,7 +9,8 @@ class ViewHistoryModel extends FlutterFlowModel<ViewHistoryWidget> {
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, ReviewRecord>? listViewPagingController;
+  PagingController<DocumentSnapshot?, ParkingFeesRecord>?
+      listViewPagingController;
   Query? listViewPagingQuery;
   List<StreamSubscription?> listViewStreamSubscriptions = [];
 
@@ -25,7 +26,7 @@ class ViewHistoryModel extends FlutterFlowModel<ViewHistoryWidget> {
   }
 
   /// Additional helper methods.
-  PagingController<DocumentSnapshot?, ReviewRecord> setListViewController(
+  PagingController<DocumentSnapshot?, ParkingFeesRecord> setListViewController(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -37,16 +38,16 @@ class ViewHistoryModel extends FlutterFlowModel<ViewHistoryWidget> {
     return listViewPagingController!;
   }
 
-  PagingController<DocumentSnapshot?, ReviewRecord> _createListViewController(
+  PagingController<DocumentSnapshot?, ParkingFeesRecord>
+      _createListViewController(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
-    final controller =
-        PagingController<DocumentSnapshot?, ReviewRecord>(firstPageKey: null);
+    final controller = PagingController<DocumentSnapshot?, ParkingFeesRecord>(
+        firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryReviewRecordPage(
-          queryBuilder: (_) => listViewPagingQuery ??= query,
+        (nextPageMarker) => queryParkingFeesRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions,
           controller: controller,

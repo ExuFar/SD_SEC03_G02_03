@@ -44,6 +44,63 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
           ),
         ],
       ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -87,8 +144,8 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).bloodRed,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF0F1D6B),
                     ),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -127,7 +184,8 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   Align(
@@ -140,10 +198,11 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).labelLarge.override(
                               fontFamily: 'Lato',
-                              color: const Color(0xFFA91919),
+                              color: const Color(0xFF0F1D6B),
                               letterSpacing: 0.0,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ),
                   ),
                   Flexible(
@@ -243,7 +302,7 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                         .override(
                                                           fontFamily: 'Rubik',
                                                           color:
-                                                              const Color(0xFF6B0F0F),
+                                                              const Color(0xFF0F1D6B),
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -287,7 +346,7 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                         .override(
                                                           fontFamily: 'Lato',
                                                           color:
-                                                              const Color(0xFF6B0F0F),
+                                                              const Color(0xFF0F1D6B),
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -317,7 +376,7 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                                           .override(
                                                             fontFamily: 'Lato',
                                                             color: const Color(
-                                                                0xFF6B0F0F),
+                                                                0xFF0F1D6B),
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -350,7 +409,8 @@ class _ViewFeedbackWidgetState extends State<ViewFeedbackWidget>
                                   ),
                                 ),
                               ),
-                            );
+                            ).animateOnPageLoad(
+                                animationsMap['containerOnPageLoadAnimation']!);
                           },
                         ),
                       ),

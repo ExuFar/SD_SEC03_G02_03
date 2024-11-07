@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/home_pages/successful_payment/successful_payment_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -60,7 +61,38 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(33.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          BlurEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -68,6 +100,82 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
             delay: 50.0.ms,
             duration: 600.0.ms,
             begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-40.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.3,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(0.0, 100.0),
             end: const Offset(0.0, 0.0),
           ),
           FadeEffect(
@@ -209,7 +317,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('editProfileNew');
+                                    context.pushNamed('viewProfile');
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -300,8 +408,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   ),
                                 ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
+                            ),
                           ),
                         ),
                       ],
@@ -712,7 +819,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                       ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(
+                                    animationsMap['rowOnPageLoadAnimation']!),
                                 Opacity(
                                   opacity: 0.9,
                                   child: SizedBox(
@@ -721,7 +829,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                       thickness: 2.0,
                                       color: FlutterFlowTheme.of(context).white,
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'dividerOnPageLoadAnimation']!),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -737,7 +846,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                               fontFamily: 'Lato',
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation1']!),
                                     ),
                                   ),
                                 ),
@@ -753,7 +863,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                           fontSize: 45.0,
                                           letterSpacing: 0.0,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation2']!),
                                 ),
                               ],
                             ),
@@ -838,9 +949,13 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Align(
                                               alignment: const AlignmentDirectional(
@@ -851,6 +966,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                                         25.0, 25.0, 0.0, 0.0),
                                                 child: Text(
                                                   'Availability :',
+                                                  textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -871,7 +987,7 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                                  MainAxisAlignment.center,
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
                                               children: [
@@ -1008,40 +1124,21 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 25.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                            'viewAvaliableSlots');
-                                                      },
-                                                      child: Text(
-                                                        '3 slots',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Lato',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .black,
-                                                                  fontSize:
-                                                                      18.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                      ),
+                                                    child: Text(
+                                                      '3 slots',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Lato',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .black,
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -1057,8 +1154,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       25.0, 25.0, 25.0, 25.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed('viewAvaliableSlots');
                                     },
                                     text: 'Check slots',
                                     options: FFButtonOptions(
@@ -1086,10 +1183,469 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                               ],
                             ),
                           ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation1']!),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 25.0, 0.0, 0.0),
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        25.0, 0.0, 0.0, 10.0),
+                                    child: Text(
+                                      'Calculate Parking Fees',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Lato',
+                                            color: FlutterFlowTheme.of(context)
+                                                .bloodRed,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 2.0,
+                                  indent: 145.0,
+                                  endIndent: 125.0,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 2.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      child: Container(
+                                        width: 283.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 4.0,
+                                              color: Color(0x33000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 25.0, 0.0, 25.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        25.0, 10.0, 25.0, 20.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          _model.timeIn
+                                                              ?.toString(),
+                                                          'TimeIn',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lato',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bloodRed,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderRadius: 8.0,
+                                                        icon: Icon(
+                                                          Icons
+                                                              .access_time_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bloodRed,
+                                                          size: 25.0,
+                                                        ),
+                                                        onPressed: () async {
+                                                          final datePicked2Time =
+                                                              await showTimePicker(
+                                                            context: context,
+                                                            initialTime: TimeOfDay
+                                                                .fromDateTime(
+                                                                    getCurrentTimestamp),
+                                                            builder: (context,
+                                                                child) {
+                                                              return wrapInMaterialTimePickerTheme(
+                                                                context,
+                                                                child!,
+                                                                headerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                headerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                headerTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Rubik',
+                                                                          fontSize:
+                                                                              32.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                pickerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                pickerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                selectedDateTimeBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                selectedDateTimeForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                actionButtonForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                iconSize: 24.0,
+                                                              );
+                                                            },
+                                                          );
+                                                          if (datePicked2Time !=
+                                                              null) {
+                                                            safeSetState(() {
+                                                              _model.datePicked2 =
+                                                                  DateTime(
+                                                                getCurrentTimestamp
+                                                                    .year,
+                                                                getCurrentTimestamp
+                                                                    .month,
+                                                                getCurrentTimestamp
+                                                                    .day,
+                                                                datePicked2Time
+                                                                    .hour,
+                                                                datePicked2Time
+                                                                    .minute,
+                                                              );
+                                                            });
+                                                          }
+                                                          _model.timeIn = _model
+                                                              .datePicked2;
+                                                          safeSetState(() {});
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        25.0, 0.0, 25.0, 20.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          _model.timeOut
+                                                              ?.toString(),
+                                                          'Time Out',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lato',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bloodRed,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                        borderRadius: 8.0,
+                                                        buttonSize: 46.0,
+                                                        icon: Icon(
+                                                          Icons
+                                                              .access_time_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bloodRed,
+                                                          size: 25.0,
+                                                        ),
+                                                        onPressed: () async {
+                                                          final datePicked4Time =
+                                                              await showTimePicker(
+                                                            context: context,
+                                                            initialTime: TimeOfDay
+                                                                .fromDateTime(
+                                                                    getCurrentTimestamp),
+                                                            builder: (context,
+                                                                child) {
+                                                              return wrapInMaterialTimePickerTheme(
+                                                                context,
+                                                                child!,
+                                                                headerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                headerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                headerTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Rubik',
+                                                                          fontSize:
+                                                                              32.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                pickerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                pickerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                selectedDateTimeBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bloodRed,
+                                                                selectedDateTimeForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                actionButtonForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                iconSize: 24.0,
+                                                              );
+                                                            },
+                                                          );
+                                                          if (datePicked4Time !=
+                                                              null) {
+                                                            safeSetState(() {
+                                                              _model.datePicked4 =
+                                                                  DateTime(
+                                                                getCurrentTimestamp
+                                                                    .year,
+                                                                getCurrentTimestamp
+                                                                    .month,
+                                                                getCurrentTimestamp
+                                                                    .day,
+                                                                datePicked4Time
+                                                                    .hour,
+                                                                datePicked4Time
+                                                                    .minute,
+                                                              );
+                                                            });
+                                                          }
+                                                          _model.timeOut =
+                                                              _model
+                                                                  .datePicked4;
+                                                          safeSetState(() {});
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        40.0, 10.0, 40.0, 5.0),
+                                                child: Text(
+                                                  '*Please note that the first hour of parking costs RM5, and each additional hour is RM3.',
+                                                  textAlign: TextAlign.justify,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Lato',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 15.0, 0.0, 15.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      if ((_model.timeIn != null) &&
+                                          (_model.timeOut != null)) {
+                                        await ParkingFeesRecord.createDoc(
+                                                currentUserReference!)
+                                            .set(createParkingFeesRecordData(
+                                          userID: currentUserReference,
+                                          timeIn: _model.datePicked2,
+                                          timeOut: _model.datePicked4,
+                                          totalFees: 5 +
+                                              (((_model.timeOut!.secondsSinceEpoch -
+                                                                  _model.timeIn!
+                                                                      .secondsSinceEpoch) +
+                                                              3599) ~/
+                                                          3600 -
+                                                      1) *
+                                                  3,
+                                        ));
+                                        _model.total = 5 +
+                                            (((_model.timeOut!.secondsSinceEpoch -
+                                                                _model.timeIn!
+                                                                    .secondsSinceEpoch) +
+                                                            3599) ~/
+                                                        3600 -
+                                                    1) *
+                                                3;
+                                        safeSetState(() {});
+                                      } else {
+                                        return;
+                                      }
+
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: SuccessfulPaymentWidget(
+                                                timeIn: _model.timeIn!,
+                                                timeOut: _model.timeOut!,
+                                                totalFees:
+                                                    valueOrDefault<String>(
+                                                  _model.total?.toString(),
+                                                  '0',
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
+                                    text: 'Calculate',
+                                    options: FFButtonOptions(
+                                      height: 40.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).bloodRed,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Lato',
+                                            color: Colors.white,
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(24.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation2']!),
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 25.0, 0.0, 140.0),
+                              0.0, 25.0, 0.0, 0.0),
                           child: Container(
                             decoration: const BoxDecoration(),
                             child: Column(
@@ -1488,7 +2044,8 @@ class _HomepageCustomerWidgetState extends State<HomepageCustomerWidget>
                                 ),
                               ],
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation3']!),
                         ),
                       ],
                     ),

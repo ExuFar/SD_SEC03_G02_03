@@ -22,11 +22,11 @@ service cloud.firestore {
       allow delete: if request.auth.uid == parent;
     }
 
-    match /parking_slot/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
+    match /users/{parent}/parkingFees/{document} {
+      allow create: if request.auth.uid == parent;
+      allow read: if request.auth.uid == parent;
+      allow write: if request.auth.uid == parent;
+      allow delete: if request.auth.uid == parent;
     }
   }
 }
