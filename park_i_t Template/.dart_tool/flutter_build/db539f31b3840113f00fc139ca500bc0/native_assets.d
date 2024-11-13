@@ -1,1 +1,0 @@
- C:\\Users\\izzul\\Downloads\\park_i_t\\park_i_t\\.dart_tool\\flutter_build\\db539f31b3840113f00fc139ca500bc0\\native_assets.yaml: 
