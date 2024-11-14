@@ -33,6 +33,18 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
     _model.emailAddressFocusNode ??= FocusNode();
 
     animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          BlurEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'iconButtonOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -146,6 +158,23 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: Stack(
         children: [
+          Opacity(
+            opacity: 0.2,
+            child: Container(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).bloodRed,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.asset(
+                  'assets/images/background.png',
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+            ),
+          ),
           Align(
             alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
@@ -203,7 +232,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                           fontFamily: 'Rubik',
                                           color: FlutterFlowTheme.of(context)
                                               .black,
-                                          fontSize: 29.0,
+                                          fontSize: 25.0,
                                           letterSpacing: 0.0,
                                         ),
                                   ).animateOnPageLoad(animationsMap[

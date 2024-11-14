@@ -90,6 +90,25 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 130.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-100.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'buttonOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -193,7 +212,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                           children: [
                             Flexible(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.6, 1.4),
+                                alignment: const AlignmentDirectional(0.6, 1.8),
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: Text(
@@ -255,7 +274,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                                           letterSpacing: 0.05,
                                           fontWeight: FontWeight.w300,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation3']!),
                                 ),
                               ),
                             ),
@@ -265,7 +285,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget>
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'SignInNew',
+                                      'SignIn',
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,

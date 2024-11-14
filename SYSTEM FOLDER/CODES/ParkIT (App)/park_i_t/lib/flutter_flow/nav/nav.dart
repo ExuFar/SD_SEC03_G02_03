@@ -72,39 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const SignInNewWidget() : const WelcomePageWidget(),
+          appStateNotifier.loggedIn ? const SignInWidget() : const WelcomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? const SignInNewWidget()
-              : const WelcomePageWidget(),
-        ),
-        FFRoute(
-          name: 'LoginUser',
-          path: '/loginUser',
-          builder: (context, params) => const LoginUserWidget(),
-        ),
-        FFRoute(
-          name: 'SignUpUser',
-          path: '/signUpUser',
-          builder: (context, params) => const SignUpUserWidget(),
-        ),
-        FFRoute(
-          name: 'HomePageUser',
-          path: '/homePageUser',
-          builder: (context, params) => const HomePageUserWidget(),
-        ),
-        FFRoute(
-          name: 'Profile',
-          path: '/profile',
-          builder: (context, params) => const ProfileWidget(),
-        ),
-        FFRoute(
-          name: 'editProfile',
-          path: '/editProfile',
-          builder: (context, params) => const EditProfileWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? const SignInWidget() : const WelcomePageWidget(),
         ),
         FFRoute(
           name: 'forgotPassword',
@@ -122,14 +96,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const WelcomePageWidget(),
         ),
         FFRoute(
-          name: 'SignInNew',
-          path: '/signInNew',
-          builder: (context, params) => const SignInNewWidget(),
+          name: 'SignIn',
+          path: '/signIn',
+          builder: (context, params) => const SignInWidget(),
         ),
         FFRoute(
-          name: 'SignUpNew',
-          path: '/signUpNew',
-          builder: (context, params) => const SignUpNewWidget(),
+          name: 'SignUp',
+          path: '/signUp',
+          builder: (context, params) => const SignUpWidget(),
         ),
         FFRoute(
           name: 'homepageAdmin',
@@ -155,6 +129,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AboutUs',
           path: '/aboutUs',
           builder: (context, params) => const AboutUsWidget(),
+        ),
+        FFRoute(
+          name: 'customerList',
+          path: '/customerList',
+          builder: (context, params) => const CustomerListWidget(),
+        ),
+        FFRoute(
+          name: 'GiveFeedback',
+          path: '/giveFeedback',
+          builder: (context, params) => GiveFeedbackWidget(
+            user: params.getParam(
+              'user',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'ViewFeedback',
+          path: '/viewFeedback',
+          builder: (context, params) => const ViewFeedbackWidget(),
+        ),
+        FFRoute(
+          name: 'viewAvaliableSlots',
+          path: '/viewAvaliableSlots',
+          builder: (context, params) => const ViewAvaliableSlotsWidget(),
+        ),
+        FFRoute(
+          name: 'ViewHistory',
+          path: '/viewHistory',
+          builder: (context, params) => const ViewHistoryWidget(),
+        ),
+        FFRoute(
+          name: 'viewProfile',
+          path: '/viewProfile',
+          builder: (context, params) => const ViewProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

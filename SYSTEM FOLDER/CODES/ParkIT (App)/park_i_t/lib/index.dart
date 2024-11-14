@@ -1,26 +1,29 @@
 // Export pages
-export '/main_pages/login_user/login_user_widget.dart' show LoginUserWidget;
-export '/main_pages/sign_up_user/sign_up_user_widget.dart'
-    show SignUpUserWidget;
-export '/home_pages/home_page_user/home_page_user_widget.dart'
-    show HomePageUserWidget;
-export '/confirmation/edit_profile/profile/profile_widget.dart'
-    show ProfileWidget;
-export '/confirmation/edit_profile/edit_profile_widget.dart'
-    show EditProfileWidget;
 export '/password/forgot_password/forgot_password_widget.dart'
     show ForgotPasswordWidget;
 export '/password/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
 export '/main_pages/welcome_page/welcome_page_widget.dart'
     show WelcomePageWidget;
-export '/main_pages/sign_in_new/sign_in_new_widget.dart' show SignInNewWidget;
-export '/main_pages/sign_up_new/sign_up_new_widget.dart' show SignUpNewWidget;
+export '/main_pages/sign_in/sign_in_widget.dart' show SignInWidget;
+export '/main_pages/sign_up/sign_up_widget.dart' show SignUpWidget;
 export '/home_pages/homepage_admin/homepage_admin_widget.dart'
     show HomepageAdminWidget;
-export '/confirmation/edit_profile/edit_profile_new/edit_profile_new_widget.dart'
+export '/edit_profile/edit_profile_new/edit_profile_new_widget.dart'
     show EditProfileNewWidget;
 export '/home_pages/homepage_customer/homepage_customer_widget.dart'
     show HomepageCustomerWidget;
-export '/about_us/contact_us/contact_us_widget.dart' show ContactUsWidget;
-export '/about_us/about_us/about_us_widget.dart' show AboutUsWidget;
+export '/tools/contact_us/contact_us_widget.dart' show ContactUsWidget;
+export '/tools/about_us/about_us_widget.dart' show AboutUsWidget;
+export '/tools/admin/customer_list/customer_list_widget.dart'
+    show CustomerListWidget;
+export '/tools/customer/give_feedback/give_feedback_widget.dart'
+    show GiveFeedbackWidget;
+export '/tools/admin/view_feedback/view_feedback_widget.dart'
+    show ViewFeedbackWidget;
+export '/tools/view_avaliable_slots/view_avaliable_slots_widget.dart'
+    show ViewAvaliableSlotsWidget;
+export '/tools/admin/view_history/view_history_widget.dart'
+    show ViewHistoryWidget;
+export '/edit_profile/view_profile/view_profile_widget.dart'
+    show ViewProfileWidget;
